@@ -15,7 +15,8 @@ slashed.prototype.show = function(){
 }
 
 slashed.prototype.flip = function(){
-  this.orientation = (this.orientation == "backward") ? ("forward") : "backward";
+  // this.orientation = (this.orientation == "backward") ? ("forward") : "backward";
+  this.orientation = orientation_generator();
   fill('black');
   noStroke();
   rect(this.x - 1,this.y - 1,mover);
