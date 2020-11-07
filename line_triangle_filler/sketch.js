@@ -1,9 +1,12 @@
 var triangle_array;
 var array_length;
 var array_height;
-var triangle_base = 150;
-var triangle_height = 100;
+var triangle_base = 150*2;
+var triangle_height = 100*2;
 
+
+var line_height = 20;
+var line_gap = 20;
 
 var up_corn;
 var left_corn;
@@ -12,6 +15,12 @@ var right_corn;
 
 function reportsize() {
   canvas.resizeCanvas(window.innerWidth,window.innerHeight);
+}
+
+
+function random_orientation(){
+  ops = ["usual","right","left"];
+  return random(ops);
 }
 
 // window.addEventListener('resize',reportsize);
@@ -27,8 +36,9 @@ function create2dArray(x_len,y_len){
 function fill_array(arr){
   for (let i=0; i<arr.length; i++){
     for (let j=0; j<arr[0].length; j++){
-      lines_or = "down";
-      arr[i][j] = new lineTriangle((i)*triangle_base,(j)*triangle_height,"up",lines_or);
+      lines_or = random_orientation();
+      ori = ((i+j) % 2 != 0) ? "up" : "down";
+      arr[i][j] = new lineTriangle((i)*triangle_base/2,(j)*triangle_height,ori,lines_or);
     }
   }
   return arr;
@@ -45,7 +55,7 @@ function init(){
 function setup(){
   ww = windowWidth;
   wh = windowHeight;
-  array_length = Math.round(ww/triangle_base) +1;
+  array_length = Math.round(ww/triangle_base)*2 +1;
   array_height = Math.round(wh/triangle_height) + 1;
 
   canvas = createCanvas(ww,wh);
@@ -63,7 +73,6 @@ function setup(){
 
 function draw(){
   background('black');
-  circle(mouseX,mouseY,40);
 
   for (let i=0; i<triangle_array.length; i++){
     for (let j=0; j<triangle_array[0].length; j++){
