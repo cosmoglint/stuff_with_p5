@@ -4,11 +4,12 @@ var array_height;
 
 var triangle_base = 150*2;
 var triangle_height = 100*2;
-var triangle_side = Math.sqrt(triangle_base*triangle_base, triangle_height*triangle_height);
+var triangle_side = Math.sqrt((triangle_base*triangle_base) + (triangle_height*triangle_height));
 
 var angle_top = Math.asin((triangle_base/2)/triangle_side)*2 * (180/Math.PI);
 var angle_left = Math.asin((triangle_height)/triangle_side)*2 * (180/Math.PI);
 var angle_right = angle_left;
+
 
 var line_height = 20;
 // var line_gap = 20;
@@ -75,7 +76,7 @@ function setup(){
   triangle_array = create2dArray(array_length,array_height);
   triangle_array = fill_array(triangle_array);
 
-  test_tri = new lineTriangle(ww/2,wh/2,"up","usual");
+  test_tri = new lineTriangle(ww/2,wh/2,"down","usual");
 }
 
 

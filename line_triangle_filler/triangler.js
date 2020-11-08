@@ -21,14 +21,15 @@ lineTriangle.prototype.show = function(){
   //   line(this.corner_bot_left.x,this.corner_bot_left.y,this.corner_bot_right.x,this.corner_bot_right.y);
   // }
 
-  for (let i = 0; i<line_count; i++){
-    ldiff = map(i,0,line_count,0,triangle_side);
-    rdiff = map(i,0,line_count,0,triangle_side);
+  for (let i = 0; i<line_count+1; i++){
+    ldiff = map(i,0,line_count+1,0,triangle_side);
+    rdiff = map(i,0,line_count+1,0,triangle_side);
 
-    lvec = p5.Vector.add(this.corner_up,createVector(-ldiff*Math.cos(angle_top/2),-ldiff*Math.sin(angle_top/2)));
-    rvec = p5.Vector.add(this.corner_up,createVector(rdiff*Math.cos(angle_top/2),-rdiff*Math.sin(angle_top/2)));
+    y_val = (this.orientation == "up")? (-1) : ( 1)
+
+    lvec = p5.Vector.add(this.corner_up,createVector(-ldiff*Math.cos(angle_top/2),y_val * ldiff*Math.sin(angle_top/2)));
+    rvec = p5.Vector.add(this.corner_up,createVector(rdiff*Math.cos(angle_top/2), y_val * rdiff*Math.sin(angle_top/2)));
     line(lvec.x, lvec.y ,rvec.x, rvec.y );
-    console.log(lvec.x, lvec.y ,rvec.x, rvec.y );
   }
   line(this.center.x+50,this.center.y,this.center.x-50,this.center.y);
 }
