@@ -16,6 +16,7 @@ lineTriangle.prototype.show = function(){
   triangle(this.corner_up.x,this.corner_up.y,this.corner_bot_left.x,this.corner_bot_left.y,this.corner_bot_right.x,this.corner_bot_right.y);
   stroke('black');
   // strokeWeight(1);
+  fill(color(120,150,255));
 
 
   if (this.line_ori == "usual"){

@@ -69,8 +69,8 @@ function init(){
 function setup(){
   ww = windowWidth;
   wh = windowHeight;
-  array_length = Math.round(ww/triangle_base)*2 +1;
-  array_height = Math.round(wh/triangle_height) + 1;
+  array_length = Math.round(ww/triangle_base)*2 +2;
+  array_height = Math.round(wh/triangle_height) + 2;
 
   canvas = createCanvas(ww,wh);
   canvas.position(0,0);
@@ -89,10 +89,23 @@ function draw(){
   // background('black');
   // test_tri.show();
   strokeWeight(line_height);
+  the_time = frameCount;
+  console.log(the_time);
+  if (the_time%12 == 0){
+    the_time = 0;
+    for (let x=0; x<40; x++){
+      val_x = Math.round(random(0,triangle_array.length-1));
+      val_y = Math.round(random(0,triangle_array[0].length-1));
+      triangle_array[val_x][val_y].line_ori = random_orientation();
+    }
+
+  }
+
+
   for (let i=0; i<triangle_array.length; i++){
     for (let j=0; j<triangle_array[0].length; j++){
       triangle_array[i][j].show();
     }
   }
-  noLoop();
+
 }
