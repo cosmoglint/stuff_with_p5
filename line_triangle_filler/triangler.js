@@ -26,34 +26,44 @@ lineTriangle.prototype.show = function(){
       ldiff = map(i,0,line_count+1,0,dist(this.corner_up.x,this.corner_up.y,this.corner_bot_left.x,this.corner_bot_left.y));
       rdiff = map(i,0,line_count+1,0,dist(this.corner_up.x,this.corner_up.y,this.corner_bot_right.x,this.corner_bot_right.y));
 
+      console.log("difference", ldiff);
+
+
       y_val = (this.orientation == "up")? (1) : ( -1);
 
-      lvec = p5.Vector.add(this.corner_up,createVector(-ldiff*Math.cos(angle_top/2),y_val * ldiff*Math.sin(angle_top/2)));
-      rvec = p5.Vector.add(this.corner_up,createVector(rdiff*Math.cos(angle_top/2), y_val * rdiff*Math.sin(angle_top/2)));
+
+
+      lvec = p5.Vector.add(this.corner_up,createVector(-ldiff*Math.cos((90*(Math.PI/180))-angle_top/2),y_val * ldiff*Math.sin((90*(Math.PI/180))-angle_top/2)));
+      rvec = p5.Vector.add(this.corner_up,createVector(rdiff*Math.cos((90*(Math.PI/180))-angle_top/2), y_val * rdiff*Math.sin((90*(Math.PI/180))-angle_top/2)));
+
+      console.log("cos",Math.cos(angle_top/2));
+      console.log("angle_top",angle_top);
+      console.log('x_val',-ldiff*Math.cos(angle_top/2))
+      console.log('y_val', ldiff*Math.sin(angle_top/2));
       line(lvec.x, lvec.y ,rvec.x, rvec.y );
+
     }
   }
 
-  else if (this.line_ori == "left"){
-    for (let i = 0; i<line_count+1; i++){
-      ldiff = map(i,0,line_count+1,0,triangle_side);
-      rdiff = map(i,0,line_count+1,0,triangle_base);
+  // else if (this.line_ori == "left"){
+  //   for (let i = 0; i<line_count+1; i++){
+  //     ldiff = map(i,0,line_count+1,0,triangle_side);
+  //     rdiff = map(i,0,line_count+1,0,triangle_base);
+  //
+  //     y_val = (this.orientation == "up")? (-1) : ( 1);
+  //     lvec = p5.Vector.add(this.corner_bot_left,createVector(ldiff*Math.cos(90 - angle_left/2),ldiff*Math.sin(90 - angle_left/2)));
+  //     rvec = p5.Vector.add(this.corner_bot_left,createVector(ldiff*Math.cos(90 - angle_left/2),ldiff*Math.sin(90 - angle_left/2)));
+  //     line(lvec.x, lvec.y ,rvec.x, rvec.y );
+  //   }
+  // }
+  //
+  // else if (this.line_ori == "right"){
+  //   for (let i = 0; i<line_count+1; i++){
+  //     ldiff = map(i,0,line_count+1,0,triangle_side);
+  //     rdiff = map(i,0,line_count+1,0,triangle_base);
+  //   }
+  // }
 
-      y_val = (this.orientation == "up")? (-1) : ( 1);
 
-      lvec = p5.Vector.add(this.corner_bot_left,createVector(ldiff*Math.cos(angle_left/2),ldiff*Math.sin(angle_left/2)));
-      rvec = p5.Vector.add(this.corner_bot_left,createVector(ldiff*Math.cos(angle_left/2),ldiff*Math.sin(angle_left/2)));
-      line(lvec.x, lvec.y ,rvec.x, rvec.y );
-    }
-  }
-
-  else if (this.line_ori == "right"){
-    for (let i = 0; i<line_count+1; i++){
-      ldiff = map(i,0,line_count+1,0,triangle_side);
-      rdiff = map(i,0,line_count+1,0,triangle_base);
-    }
-  }
-
-
-  line(this.center.x+50,this.center.y,this.center.x-50,this.center.y);
+  // line(this.center.x+50,this.center.y,this.center.x-50,this.center.y);
 }

@@ -2,12 +2,20 @@ var triangle_array;
 var array_length;
 var array_height;
 
+// var triangle_base = 150*2;
+// var triangle_height = (Math.sqrt(3)/2)*triangle_base;
+// var triangle_side = triangle_base;
+
+
 var triangle_base = 150*2;
 var triangle_height = 100*2;
 var triangle_side = Math.sqrt(((triangle_base/2)*(triangle_base/2)) + (triangle_height*triangle_height));
 
-var angle_top = Math.asin((triangle_base/2)/triangle_side)*2;
-var angle_left = Math.asin((triangle_height)/triangle_side);
+console.log(triangle_base,triangle_height,triangle_side);
+
+
+var angle_top = Math.asin((triangle_base/2)/triangle_side) * 2  ;
+var angle_left = Math.asin((triangle_height)/triangle_side) ;
 var angle_right = angle_left;
 
 console.log(angle_left,angle_top,angle_right);
@@ -15,7 +23,7 @@ console.log(angle_left,angle_top,angle_right);
 
 var line_height = 20;
 // var line_gap = 20;
-var line_count = 8;
+var line_count = 5;
 
 
 
@@ -90,4 +98,5 @@ function draw(){
   //     triangle_array[i][j].show();
   //   }
   // }
+  noLoop();
 }
