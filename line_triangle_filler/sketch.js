@@ -3,8 +3,8 @@ var array_length;
 var array_height;
 
 
-var triangle_base = 150*2;
-var triangle_height = 100*2;
+var triangle_base = 150;
+var triangle_height = 100;
 var triangle_side = Math.sqrt(((triangle_base/2)*(triangle_base/2)) + (triangle_height*triangle_height));
 
 console.log(triangle_base,triangle_height,triangle_side);
@@ -17,9 +17,9 @@ var angle_right = angle_left;
 console.log(angle_left,angle_top,angle_right);
 
 
-var line_height = 20;
+var line_height = 5;
 // var line_gap = 20;
-var line_count = 5;
+var line_count = 10;
 
 
 
@@ -87,11 +87,12 @@ function setup(){
 
 function draw(){
   // background('black');
-  test_tri.show();
-  // for (let i=0; i<triangle_array.length; i++){
-  //   for (let j=0; j<triangle_array[0].length; j++){
-  //     triangle_array[i][j].show();
-  //   }
-  // }
+  // test_tri.show();
+  strokeWeight(line_height);
+  for (let i=0; i<triangle_array.length; i++){
+    for (let j=0; j<triangle_array[0].length; j++){
+      triangle_array[i][j].show();
+    }
+  }
   noLoop();
 }
