@@ -2,10 +2,6 @@ var triangle_array;
 var array_length;
 var array_height;
 
-// var triangle_base = 150*2;
-// var triangle_height = (Math.sqrt(3)/2)*triangle_base;
-// var triangle_side = triangle_base;
-
 
 var triangle_base = 150*2;
 var triangle_height = 100*2;
@@ -68,7 +64,6 @@ function init(){
   up_corn = createVector(0,triangle_height/2);
   left_corn = createVector(-triangle_base/2,triangle_height/2);
   right_corn = createVector(triangle_base/2,triangle_height/2);
-  // console.log(up_corn,left_corn,right_corn);
 }
 
 function setup(){
@@ -86,7 +81,7 @@ function setup(){
   triangle_array = create2dArray(array_length,array_height);
   triangle_array = fill_array(triangle_array);
 
-  test_tri = new lineTriangle(ww/2,wh/2,"up","usual");
+  test_tri = new lineTriangle(ww/2,wh/2,"down","left");
 }
 
 
