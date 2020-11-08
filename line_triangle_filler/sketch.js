@@ -81,7 +81,7 @@ function setup(){
   triangle_array = create2dArray(array_length,array_height);
   triangle_array = fill_array(triangle_array);
 
-  test_tri = new lineTriangle(ww/2,wh/2,"down","left");
+  test_tri = new lineTriangle(ww/2,wh/2,"up","right");
 }
 
 

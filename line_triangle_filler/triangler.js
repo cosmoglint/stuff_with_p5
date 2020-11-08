@@ -55,8 +55,16 @@ lineTriangle.prototype.show = function(){
 
   else if (this.line_ori == "right"){
     for (let i = 0; i<line_count+1; i++){
-      ldiff = map(i,0,line_count+1,0,triangle_side);
-      rdiff = map(i,0,line_count+1,0,triangle_base);
+      rdiff = map(i,0,line_count+1,0,triangle_side);
+      ldiff = map(i,0,line_count+1,0,triangle_base);
+
+      y_val = (this.orientation == "up")? ( -1) : ( 1);
+      x_val = (this.orientation == "up")? ( -1) : ( 1);
+
+      lvec = p5.Vector.add(this.corner_bot_right,createVector(x_val * rdiff*Math.cos(angle_left),y_val*rdiff*Math.sin(angle_left)));
+      rvec = p5.Vector.add(this.corner_bot_right,createVector(x_val * ldiff,0));
+
+      line(lvec.x, lvec.y ,rvec.x, rvec.y );
     }
   }
 
