@@ -35,6 +35,7 @@ function draw(){
   background(0);
 
   points = map(mouseY,0,wh,0,360);
+  // points = 1000;
   table_factor = map(mouseX,0,ww,0,360);
 
   translate(windowWidth/2,windowHeight/2);
