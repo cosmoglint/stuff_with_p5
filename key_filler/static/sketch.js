@@ -27,9 +27,9 @@ function init(){
 }
 
 function setup(){
-  init()
+  init();
 }
 
 function draw(){
-
+  // circle(mouseX,mouseY,100);
 }
