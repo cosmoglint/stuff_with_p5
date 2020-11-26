@@ -9,11 +9,6 @@ function reportsize(){
 }
 
 
-// function reportsize(){
-// 	resizeCanvas(windowWidth,windowHeight);
-// 	init();
-// }
-
 
 window.addEventListener('resize', reportsize);
 
