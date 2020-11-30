@@ -27,7 +27,7 @@ function setup(){
   rectMode(CENTER);
   init();
   blo = new block(random(ww),random(wh));
-  block_lst.push()
+  block_lst.push(blo);
 
 }
 
@@ -39,7 +39,7 @@ function draw(){
   background(0);
 
   for (let i=0; i<block_lst.length; i++){
-    block_lst[i].mover();
+    block_lst[i].gravity_mover();
     block_lst[i].show();
   }
   // blo.gravity_mover();
