@@ -8,3 +8,7 @@ block.prototype.show = function(){
   fill('white');
   rect(this.x_pos,this.y_pos,50);
 }
+
+block.prototype.gravity_mover = function(){
+  this.y_pos += g_force;
+}

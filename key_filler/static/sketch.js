@@ -1,3 +1,5 @@
+var g_force = 9.8;
+
 
 function random_color(){
   thecol = color(random(0,255),random(0,255),random(0,255));
@@ -23,11 +25,13 @@ function init(){
 function setup(){
   rectMode(CENTER);
   init();
-  background(0);
+  blo = new block(random(ww),random(wh));
+
 }
 
 function draw(){
-  blo = new block(random(ww),random(wh));
+  background(0);
+  blo.gravity_mover();
   blo.show();
   // circle(mouseX,mouseY,100);
 }
