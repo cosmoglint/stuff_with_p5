@@ -1,21 +1,24 @@
+var g_force = 9.8;
+var block_lst = [];
+
 
 function random_color(){
   thecol = color(random(0,255),random(0,255),random(0,255));
   return thecol;
 }
 
-function reportsize(){
-	resizeCanvas(windowWidth,windowHeight);
+
+function spawner(){
+  new_blo = new block(random(ww),0);
+  block_lst.push(new_blo);
 }
 
+function cleaner(){
+  if (block_lst.length > 300){
+    block_lst.splice(0,50);
+  }
+}
 
-// function reportsize(){
-// 	resizeCanvas(windowWidth,windowHeight);
-// 	init();
-// }
-
-
-window.addEventListener('resize', reportsize);
 
 
 function init(){
@@ -27,9 +30,21 @@ function init(){
 }
 
 function setup(){
+  rectMode(CENTER);
   init();
+  spawner();
+
 }
 
 function draw(){
-  // circle(mouseX,mouseY,100);
+  if (frameCount % 50 == 0){
+    spawner();
+  }
+  background(0);
+
+  for (let i=0; i<block_lst.length; i++){
+    block_lst[i].gravity_mover();
+    block_lst[i].show();
+  }
+  cleaner();
 }
