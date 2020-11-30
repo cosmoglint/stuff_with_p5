@@ -23,8 +23,11 @@ function init(){
 function setup(){
   rectMode(CENTER);
   init();
+  background(0);
 }
 
 function draw(){
-  circle(mouseX,mouseY,100);
+  blo = new block(random(ww),random(wh));
+  blo.show();
+  // circle(mouseX,mouseY,100);
 }

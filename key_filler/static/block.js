@@ -4,6 +4,7 @@ function block(x,y,text){
   this.text = text;
 }
 
-block.prototype.draw = function(){
-  rectangle(this.x_pos,this.y_pos,50);
+block.prototype.show = function(){
+  fill('white');
+  rect(this.x_pos,this.y_pos,50);
 }
