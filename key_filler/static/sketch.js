@@ -5,10 +5,9 @@ function random_color(){
 }
 
 function reportsize(){
-	resizeCanvas(windowWidth,windowHeight);
+	// resizeCanvas(windowWidth,windowHeight);
+  init();
 }
-
-
 
 window.addEventListener('resize', reportsize);
 
@@ -22,6 +21,7 @@ function init(){
 }
 
 function setup(){
+  rectMode(CENTER);
   init();
 }
 
