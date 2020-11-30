@@ -1,5 +1,6 @@
 var g_force = 9.8;
 var block_lst = [];
+var block_size = 50;
 
 
 function random_color(){
@@ -43,7 +44,7 @@ function draw(){
   background(0);
 
   for (let i=0; i<block_lst.length; i++){
-    block_lst[i].gravity_mover();
+    block_lst[i].gravity_mover(i);
     block_lst[i].show();
   }
   cleaner();
