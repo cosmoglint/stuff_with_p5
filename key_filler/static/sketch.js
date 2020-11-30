@@ -1,4 +1,5 @@
 var g_force = 9.8;
+var block_lst = [];
 
 
 function random_color(){
@@ -26,12 +27,22 @@ function setup(){
   rectMode(CENTER);
   init();
   blo = new block(random(ww),random(wh));
+  block_lst.push()
 
 }
 
 function draw(){
+  if (frameCount % 50 == 0){
+    new_blo = new block(random(ww),random(wh));
+    block_lst.push(new_blo);
+  }
   background(0);
-  blo.gravity_mover();
-  blo.show();
+
+  for (let i=0; i<block_lst.length; i++){
+    block_lst[i].mover();
+    block_lst[i].show();
+  }
+  // blo.gravity_mover();
+  // blo.show();
   // circle(mouseX,mouseY,100);
 }
