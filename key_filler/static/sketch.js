@@ -38,7 +38,7 @@ function setup(){
 }
 
 function draw(){
-  if (frameCount % 50 == 0){
+  if (frameCount % 10 == 0){
     spawner();
   }
   background(0);
