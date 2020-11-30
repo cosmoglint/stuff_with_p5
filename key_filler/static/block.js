@@ -10,5 +10,8 @@ block.prototype.show = function(){
 }
 
 block.prototype.gravity_mover = function(){
-  this.y_pos += g_force;
+  if (this.y_pos < wh){
+      this.y_pos += g_force;
+  }
+
 }

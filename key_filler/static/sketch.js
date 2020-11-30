@@ -7,12 +7,18 @@ function random_color(){
   return thecol;
 }
 
-function reportsize(){
-	// resizeCanvas(windowWidth,windowHeight);
-  init();
+
+function spawner(){
+  new_blo = new block(random(ww),0);
+  block_lst.push(new_blo);
 }
 
-window.addEventListener('resize', reportsize);
+function cleaner(){
+  if (block_lst.length > 300){
+    block_lst.splice(0,50);
+  }
+}
+
 
 
 function init(){
@@ -26,15 +32,13 @@ function init(){
 function setup(){
   rectMode(CENTER);
   init();
-  blo = new block(random(ww),random(wh));
-  block_lst.push(blo);
+  spawner();
 
 }
 
 function draw(){
   if (frameCount % 50 == 0){
-    new_blo = new block(random(ww),random(wh));
-    block_lst.push(new_blo);
+    spawner();
   }
   background(0);
 
@@ -42,7 +46,5 @@ function draw(){
     block_lst[i].gravity_mover();
     block_lst[i].show();
   }
-  // blo.gravity_mover();
-  // blo.show();
-  // circle(mouseX,mouseY,100);
+  cleaner();
 }
