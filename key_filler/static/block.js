@@ -4,13 +4,14 @@ function block(x,y,txt){
   this.txt = txt;
   this.width = textWidth(this.txt);
   this.height = block_size;
+  this.totwidth = this.width+padding;
 }
 
 block.prototype.show = function(){
   fill('white');
-  rect(this.x_pos,this.y_pos,block_size);
+  rect(this.x_pos,this.y_pos,this.totwidth,this.height);
   fill(0);
-  text(this.txt,this.x_pos,this.y_pos);
+  text(this.txt,this.x_pos,this.y_pos+this.height/6);
 }
 
 block.prototype.gravity_mover = function(val){

@@ -1,6 +1,7 @@
 var g_force = 9.8;
 var block_lst = [];
 var block_size = 50;
+padding = 50
 
 
 function random_color(){
@@ -32,14 +33,14 @@ function init(){
   canvas.style('z-index','-1');
   canvas.position(0,0);
 
-  textSize(20);
+  textSize(25);
   textStyle(BOLD);
+  textAlign(CENTER);
 }
 
 function setup(){
   rectMode(CENTER);
   init();
-  spawner();
 
 }
 
