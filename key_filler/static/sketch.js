@@ -16,8 +16,8 @@ function spawner(txt){
 }
 
 function cleaner(){
-  if (block_lst.length > 300){
-    block_lst.splice(0,50);
+  if (block_lst.length > 200){
+    block_lst.splice(0,100);
   }
 }
 

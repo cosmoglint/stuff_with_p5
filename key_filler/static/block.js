@@ -19,7 +19,7 @@ block.prototype.gravity_mover = function(val){
   if (this.y_pos < (wh-block_size/2)){
     for (let i=0; i<block_lst.length; i++){
       if (i != val){
-        if ((block_lst[i].y_pos-this.y_pos)<block_size && (block_lst[i].y_pos-this.y_pos)>0 && Math.abs(block_lst[i].x_pos-this.x_pos)<block_size){
+        if ((block_lst[i].y_pos-this.y_pos)<this.height && (block_lst[i].y_pos-this.y_pos)>0 && (block_lst[i].totwidth/2 + this.totwidth/2)>Math.abs(block_lst[i].x_pos-this.x_pos)){
           flag = 'dont';
           break;
         }
