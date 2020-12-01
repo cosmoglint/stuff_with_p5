@@ -93,7 +93,7 @@ function draw(){
   console.log(the_time);
   if (the_time%12 == 0){
     the_time = 0;
-    for (let x=0; x<40; x++){
+    for (let x=0; x<30; x++){
       val_x = Math.round(random(0,triangle_array.length-1));
       val_y = Math.round(random(0,triangle_array[0].length-1));
       triangle_array[val_x][val_y].line_ori = random_orientation();
