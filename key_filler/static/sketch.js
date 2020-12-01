@@ -9,8 +9,8 @@ function random_color(){
 }
 
 
-function spawner(){
-  new_blo = new block(random(ww),0);
+function spawner(txt){
+  new_blo = new block(random(ww),-block_size,txt);
   block_lst.push(new_blo);
 }
 
@@ -20,7 +20,10 @@ function cleaner(){
   }
 }
 
-
+function keyPressed(){
+  txt = '${key}'
+  spawner(txt);
+}
 
 function init(){
   ww = windowWidth;

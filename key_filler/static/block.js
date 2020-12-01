@@ -1,12 +1,13 @@
-function block(x,y,text){
+function block(x,y,txt){
   this.x_pos = x;
   this.y_pos = y;
-  this.text = text;
+  this.txt = txt;
 }
 
 block.prototype.show = function(){
   fill('white');
   rect(this.x_pos,this.y_pos,block_size);
+  text(this.txt,this.x_pos,this.y_pos);
 }
 
 block.prototype.gravity_mover = function(val){
@@ -24,7 +25,7 @@ block.prototype.gravity_mover = function(val){
       }
     }
 
-    (flag == 'move') ? (this.y_pos+=g_force) : (this.y_pos = this.y_pos);
+    (flag == 'move') ? (this.y_pos += g_force) : (this.y_pos = this.y_pos);
   }
 
 }
