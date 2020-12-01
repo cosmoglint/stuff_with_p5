@@ -21,7 +21,7 @@ function cleaner(){
 }
 
 function keyPressed(){
-  txt = '${key}'
+  txt = key
   spawner(txt);
 }
 
@@ -31,6 +31,9 @@ function init(){
   canvas = createCanvas(ww,wh);
   canvas.style('z-index','-1');
   canvas.position(0,0);
+
+  textSize(20);
+  textStyle(BOLD);
 }
 
 function setup(){

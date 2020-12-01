@@ -2,11 +2,14 @@ function block(x,y,txt){
   this.x_pos = x;
   this.y_pos = y;
   this.txt = txt;
+  this.width = textWidth(this.txt);
+  this.height = block_size;
 }
 
 block.prototype.show = function(){
   fill('white');
   rect(this.x_pos,this.y_pos,block_size);
+  fill(0);
   text(this.txt,this.x_pos,this.y_pos);
 }
 
