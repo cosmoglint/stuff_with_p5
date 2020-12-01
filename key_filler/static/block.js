@@ -12,7 +12,7 @@ block.prototype.show = function(){
 
 block.prototype.gravity_mover = function(val){
   flag = 'move';
-  if (this.y_pos < wh){
+  if (this.y_pos < (wh-block_size/2)){
     for (let i=0; i<block_lst.length; i++){
       if (i != val){
         if ((block_lst[i].y_pos-this.y_pos)<block_size && (block_lst[i].y_pos-this.y_pos)>0 && Math.abs(block_lst[i].x_pos-this.x_pos)<block_size){

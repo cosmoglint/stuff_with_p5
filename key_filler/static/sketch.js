@@ -41,9 +41,9 @@ function setup(){
 }
 
 function draw(){
-  if (frameCount % 10 == 0){
-    spawner();
-  }
+  // if (frameCount % 10 == 0){
+  //   spawner();
+  // }
   background(0);
 
   for (let i=0; i<block_lst.length; i++){
