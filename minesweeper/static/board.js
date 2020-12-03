@@ -32,8 +32,10 @@ Board.prototype = {
   clicked: function(){
     for (let i=0; i<this.rows; i++){
       for (let j=0; j<this.columns; j++){
-        d = dist(mouseX,mouseY,i* (block_size+block_padding) + this.corner.x,j*(block_size+block_padding) + this.coner.y)
-        this.block_list[i][j].clicker();
+        d = dist(mouseX,mouseY,i* (block_size+block_padding) + this.corner.x,j*(block_size+block_padding) + this.corner.y)
+        if (d < block_size/2){
+          this.block_list[i][j].clicker();
+        }
       }
     }
   }

@@ -2,6 +2,9 @@ var block_size = 50;
 var block_padding = 30;
 var the_board;
 
+var row_count = 10;
+var column_count = 10;
+
 
 function random_color(){
   thecol = color(random(0,255),random(0,255),random(0,255));
@@ -23,7 +26,9 @@ function init(){
   canvas.style('z-index','-1');
   canvas.position(0,0);
 
-  startpos = createVector(0,0)
+  bx = ww/2 - (row_count/2)*(block_size + block_padding);
+  by = wh/2 - (column_count/2)*(block_size + block_padding);
+  startpos = createVector(bx,by);
   the_board = new Board(10,10,startpos);
   the_board.create_list();
   the_board.add_items();
