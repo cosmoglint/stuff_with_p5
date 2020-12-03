@@ -19,7 +19,7 @@ function init(){
   canvas.style('z-index','-1');
   canvas.position(0,0);
 
-  startpos = p5.CreateVector(0,0)
+  startpos = createVector(0,0)
   the_board = new Board(10,10,startpos);
   the_board.create_list();
   the_board.add_items();
