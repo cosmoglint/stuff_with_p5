@@ -5,7 +5,11 @@ function Block(x,y){
 }
 
 Block.prototype = {
-  show: function(start_x,start_y){
-    rect(start_x + this.x_pos*(block_size+block_padding), start_y + this.y_pos*(block_size+block_padding),block_size);
+  show: function(start){
+    rect(start.x + this.x_pos*(block_size+block_padding), start.y + this.y_pos*(block_size+block_padding),block_size);
   },
+
+  clicker: function(){
+    
+  }
 }

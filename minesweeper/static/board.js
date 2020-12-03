@@ -24,7 +24,16 @@ Board.prototype = {
   render: function(){
     for (let i=0; i<this.rows; i++){
       for (let j=0; j<this.columns; j++){
-        this.block_list[i][j].show(this.corner.x,this.corner.y);
+        this.block_list[i][j].show(this.corner);
+      }
+    }
+  },
+
+  clicked: function(){
+    for (let i=0; i<this.rows; i++){
+      for (let j=0; j<this.columns; j++){
+        d = dist(mouseX,mouseY,i* (block_size+block_padding) + this.corner.x,j*(block_size+block_padding) + this.coner.y)
+        this.block_list[i][j].clicker();
       }
     }
   }

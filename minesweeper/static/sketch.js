@@ -1,6 +1,6 @@
-block_size = 50;
-block_padding = 30;
-
+var block_size = 50;
+var block_padding = 30;
+var the_board;
 
 
 function random_color(){
@@ -10,6 +10,10 @@ function random_color(){
 
 function reportsize(){
 	resizeCanvas(windowWidth,windowHeight);
+}
+
+function mousePressed(){
+  the_board.clicked();
 }
 
 function init(){
@@ -23,13 +27,14 @@ function init(){
   the_board = new Board(10,10,startpos);
   the_board.create_list();
   the_board.add_items();
-  the_board.render();
 }
 
 function setup(){
+  rectMode(CENTER);
   init();
 }
 
 function draw(){
-  circle(mouseX,mouseY,100);
+  // circle(mouseX,mouseY,100);
+  the_board.render();
 }
