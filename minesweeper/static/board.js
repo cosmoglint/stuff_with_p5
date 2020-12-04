@@ -16,7 +16,7 @@ Board.prototype = {
   add_items: function(){
     for (let i=0; i<this.rows; i++){
       for (let j=0; j<this.columns; j++){
-        this.block_list[i][j] = new Block(i,j);
+        this.block_list[i][j] = new Block(i,j,this.corner);
       }
     }
   },
@@ -41,7 +41,7 @@ Board.prototype = {
   render: function(){
     for (let i=0; i<this.rows; i++){
       for (let j=0; j<this.columns; j++){
-        this.block_list[i][j].show(this.corner);
+        this.block_list[i][j].show();
       }
     }
   },
@@ -51,7 +51,7 @@ Board.prototype = {
       for (let j=0; j<this.columns; j++){
         d = dist(mouseX,mouseY,i* (block_size+block_padding) + this.corner.x,j*(block_size+block_padding) + this.corner.y)
         if (d < block_size/2){
-          if (fr_count < 10){
+          if (fr_count < delay){
             this.block_list[i][j].clicker();
           }
           else{

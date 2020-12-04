@@ -1,8 +1,9 @@
 var block_size = 50;
-var block_padding = 30;
+var block_padding = 25;
 var the_board;
 
 var mine_count = 10;
+var delay = 9;// frames between clicks
 
 var row_count = 10;
 var column_count = 10;

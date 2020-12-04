@@ -1,6 +1,7 @@
-function Block(x,y){
+function Block(x,y,corner){
   this.x_pos = x;
   this.y_pos = y;
+  this.location = createVector(corner.x + this.x_pos*(block_size+block_padding) , corner.y + this.y_pos*(block_size+block_padding));
   this.bomb = false;
   this.value = 0;
   this.state = 'default';
@@ -10,7 +11,7 @@ function Block(x,y){
 Block.prototype = {
   show: function(start){
     fill(this.color);
-    rect(start.x + this.x_pos*(block_size+block_padding), start.y + this.y_pos*(block_size+block_padding),block_size,block_size,block_size/5);
+    rect(this.location.x,this.location.y,block_size,block_size,block_size/5);
   },
 
   clicker: function(){
