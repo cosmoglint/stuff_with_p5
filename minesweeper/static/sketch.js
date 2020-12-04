@@ -97,8 +97,11 @@ function draw(){
   the_board.is_end();
   if (game_state == 'win'){
     background(0);
+    circle(mouseX,mouseY,100);
     fill('white');
-    text("you win babie",ww/2,wh/2, 100);
+    textStyle(BOLD);
+    textSize(50);
+    text("you win babie",ww/2,wh/2);
   }
   else{
     the_board.render();
