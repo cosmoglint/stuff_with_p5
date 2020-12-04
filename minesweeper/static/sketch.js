@@ -2,6 +2,8 @@ var block_size = 50;
 var block_padding = 30;
 var the_board;
 
+var mine_count = 10;
+
 var row_count = 10;
 var column_count = 10;
 
@@ -55,6 +57,7 @@ function init(){
   the_board = new Board(10,10,startpos);
   the_board.create_list();
   the_board.add_items();
+  the_board.set_mines();
 }
 
 function setup(){

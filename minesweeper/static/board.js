@@ -21,6 +21,23 @@ Board.prototype = {
     }
   },
 
+  random_selector: function(){
+    ranx = Math.floor(random(0,this.rows));
+    rany = Math.floor(random(0,this.columns));
+    return createVector(ranx,rany);
+  },
+
+  set_mines: function(){
+    count = 0;
+    while (count <= mine_count){
+      ranval = this.random_selector();
+      if (this.block_list[ranval.x][ranval.y].bomb == false){
+        count += 1;
+        this.block_list[ranval.x][ranval.y].bomb = true;
+      }
+    }
+  },
+
   render: function(){
     for (let i=0; i<this.rows; i++){
       for (let j=0; j<this.columns; j++){
