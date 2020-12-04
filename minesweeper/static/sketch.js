@@ -53,6 +53,7 @@ function end(){
 }
 
 function set_board(){
+  game_state = 'run';
   startpos = createVector(bx,by);
   the_board = new Board(row_count,column_count,startpos);
   the_board.create_list();
@@ -79,6 +80,9 @@ function init(){
 function setup(){
   rectMode(CENTER);
   frameRate(30);
+  restart_button = createButton('restart');
+  restart_button.position(20,20);
+  restart_button.mousePressed(init);
   init();
 }
 
