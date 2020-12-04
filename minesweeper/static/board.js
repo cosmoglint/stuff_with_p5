@@ -53,7 +53,6 @@ Board.prototype = {
         sum = 0;
         blck = this.block_list[i][j];
         if (blck.mine == false){
-          console.log(i,j);
           if (i == 0 && j == 0){
             sum += (this.check_mine(this.block_list[i][j+1])  + this.check_mine(this.block_list[i+1][j]) + this.check_mine(this.block_list[i+1][j+1]));
           }

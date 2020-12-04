@@ -10,6 +10,8 @@ function Block(x,y,corner){
 
 Block.prototype = {
   show: function(start){
+    fill('white');
+    text(this.value,this.location.x,this.location.y);
     fill(this.color);
     rect(this.location.x,this.location.y,block_size,block_size,block_size/5);
   },
