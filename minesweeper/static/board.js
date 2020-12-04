@@ -131,7 +131,7 @@ Board.prototype = {
 
   flood_fill: function(x,y){
     if (x>=this.rows || x<0 || y>= this.columns || y<0){
-      console.log(x,y);
+      // console.log(x,y);
       return;
     }
     else if (this.block_list[x][y].state == 'open'){
@@ -164,13 +164,16 @@ Board.prototype = {
   },
 
   is_end: function(){
+    if (game_state == 'end'){
+      return;
+    }
     for (let i=0; i<this.rows; i++){
       for (let j=0; j<this.columns; j++){
-        if (this.block_list[i][j].value > 0 && this.block_list[i][j].state == 'default'){
-          return 'run';
+        if (this.block_list[i][j].value >= 0 && this.block_list[i][j].state == 'default'){
+          return;
         }
       }
     }
-    return 'end';
+    game_state = 'win';
   }
 }

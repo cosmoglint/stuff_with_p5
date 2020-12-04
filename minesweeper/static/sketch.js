@@ -94,7 +94,13 @@ function setup(){
 
 function draw(){
   // circle(mouseX,mouseY,100);
-  game_state = the_board.is_end();
-  (game_state == 'end') ? end() : true;
-  the_board.render();
+  the_board.is_end();
+  if (game_state == 'win'){
+    background(0);
+    fill('white');
+    text("you win babie",ww/2,wh/2, 100);
+  }
+  else{
+    the_board.render();
+  }
 }

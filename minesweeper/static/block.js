@@ -10,7 +10,7 @@ function Block(x,y,corner){
 
 Block.prototype = {
   show: function(){
-    if (game_state == 'end'){
+    if (game_state == 'end' || game_state == 'win'){
       if (this.mine){
         fill('red');
       }
