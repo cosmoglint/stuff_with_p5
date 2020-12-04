@@ -57,6 +57,12 @@ Board.prototype = {
           if (i == 0 && j == 0){
             sum += (this.check_mine(this.block_list[i][j+1])  + this.check_mine(this.block_list[i+1][j]) + this.check_mine(this.block_list[i+1][j+1]));
           }
+          else if (i == 0 && j == this.columns-1){
+            sum += (this.check_mine(this.block_list[i][j-1]) + this.check_mine(this.block_list[i+1][j-1]) + this.check_mine(this.block_list[i+1][j]));
+          }
+          else if (i == this.rows-1 && j == 0){
+            sum += (this.check_mine(this.block_list[i][j+1]) + this.check_mine(this.block_list[i-1][j+1]) + this.check_mine(this.block_list[i-1][j]));
+          }
           else if (i == this.rows-1 && j == this.columns-1){
             sum += (this.check_mine(this.block_list[i-1][j])  + this.check_mine(this.block_list[i-1][j-1]) + this.check_mine(this.block_list[i][j-1]));
           }
@@ -75,7 +81,6 @@ Board.prototype = {
           else{
             for (let x=-1; x<2; x++){
               for (let y=-1; y<2; y++){
-                console.log(val);
                 if (this.block_list[i+x][j+y].mine == true){
 
                   sum += 1;
