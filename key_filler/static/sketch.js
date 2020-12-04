@@ -10,7 +10,9 @@ function random_color(){
 }
 
 
-function spawner(txt){
+function spawner(txt,cod){
+  console.log(txt);
+  (cod==32)?(txt='             '):(txt=txt);
   new_blo = new block(random(ww),-block_size,txt);
   block_lst.push(new_blo);
 }
@@ -23,7 +25,7 @@ function cleaner(){
 
 function keyPressed(){
   txt = key
-  spawner(txt);
+  spawner(txt,keyCode);
 }
 
 function init(){
