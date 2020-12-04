@@ -1,6 +1,8 @@
 function Block(x,y){
   this.x_pos = x;
   this.y_pos = y;
+  this.bomb = false;
+  this.value = 0;
   this.state = 'default';
   this.color = 'black';
 }
