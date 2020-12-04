@@ -34,7 +34,13 @@ Board.prototype = {
       for (let j=0; j<this.columns; j++){
         d = dist(mouseX,mouseY,i* (block_size+block_padding) + this.corner.x,j*(block_size+block_padding) + this.corner.y)
         if (d < block_size/2){
-          this.block_list[i][j].clicker();
+          if (mouseButton == LEFT){
+            this.block_list[i][j].clicker();
+          }
+          else{
+            this.block_list[i][j].changer();
+          }
+          // this.block_list[i][j].color_flipper();
         }
       }
     }

@@ -12,6 +12,14 @@ Block.prototype = {
   },
 
   clicker: function(){
-    this.color = 'white'
+    this.color = 'red';
+  },
+
+  changer: function(){
+    this.color = (this.color == 'white') ? 'black' : 'white';
+  },
+
+  color_flipper: function(){
+    this.color = (this.color == 'white') ? 'black' : 'white';
   }
 }

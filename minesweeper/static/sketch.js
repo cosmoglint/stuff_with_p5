@@ -15,8 +15,18 @@ function reportsize(){
 	resizeCanvas(windowWidth,windowHeight);
 }
 
+function start_counter(){
+    start_frame = frameCount;
+}
+
+function end_counter(){
+  end_frame = frameCount;
+  return (end_frame - start_frame);
+}
+
 function mousePressed(){
-  the_board.clicked();
+  start_counter();
+  // the_board.clicked();
 }
 
 function init(){
