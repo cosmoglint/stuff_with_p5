@@ -2,8 +2,8 @@ function Block(x,y,corner){
   this.x_pos = x;
   this.y_pos = y;
   this.location = createVector(corner.x + this.x_pos*(block_size+block_padding) , corner.y + this.y_pos*(block_size+block_padding));
-  this.bomb = false;
-  this.value = 0;
+  this.mine = false;
+  this.value = -1;
   this.state = 'default';
   this.color = 'black';
 }

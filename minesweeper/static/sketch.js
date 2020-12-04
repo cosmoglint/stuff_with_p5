@@ -55,10 +55,12 @@ function init(){
   bx = ww/2 - (row_count/2)*(block_size + block_padding);
   by = wh/2 - (column_count/2)*(block_size + block_padding);
   startpos = createVector(bx,by);
-  the_board = new Board(10,10,startpos);
+  the_board = new Board(row_count,column_count,startpos);
   the_board.create_list();
   the_board.add_items();
   the_board.set_mines();
+  // the_board.set_numbers();
+  the_board.check_mine(the_board[5][6]);
 }
 
 function setup(){
