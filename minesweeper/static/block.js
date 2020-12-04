@@ -1,8 +1,9 @@
-function Block(x,y){
+function Block(x,y,corner){
   this.x_pos = x;
   this.y_pos = y;
-  this.bomb = false;
-  this.value = 0;
+  this.location = createVector(corner.x + this.x_pos*(block_size+block_padding) , corner.y + this.y_pos*(block_size+block_padding));
+  this.mine = false;
+  this.value = -1;
   this.state = 'default';
   this.color = 'black';
 }
@@ -10,11 +11,21 @@ function Block(x,y){
 Block.prototype = {
   show: function(start){
     fill(this.color);
-    rect(start.x + this.x_pos*(block_size+block_padding), start.y + this.y_pos*(block_size+block_padding),block_size,block_size,block_size/5);
+    rect(this.location.x,this.location.y,block_size,block_size,block_size/5);
+    if (this.state == 'open'){
+      fill('white');
+      text(this.value,this.location.x,this.location.y);
+    }
   },
 
   clicker: function(){
-    this.color = 'red';
+    if (this.mine){
+      this.color = 'red';
+    }
+    else{
+      this.state = 'open';
+      this.color = 'green';
+    }
   },
 
   changer: function(){
