@@ -85,6 +85,8 @@ function init(){
 
 function setup(){
   rectMode(CENTER);
+  textStyle(BOLD);
+  textAlign(CENTER);
   frameRate(30);
   restart_button = createButton('restart');
   restart_button.position(20,20);
@@ -94,16 +96,13 @@ function setup(){
 
 function draw(){
   // circle(mouseX,mouseY,100);
+  the_board.render();
   the_board.is_end();
   if (game_state == 'win'){
-    background(0);
-    circle(mouseX,mouseY,100);
-    fill('white');
-    textStyle(BOLD);
+    // background(0);
+    // circle(mouseX,mouseY,100);
+    fill('black');
     textSize(50);
-    text("you win babie",ww/2,wh/2);
-  }
-  else{
-    the_board.render();
+    text("you win babie",ww/2,block_size);
   }
 }
