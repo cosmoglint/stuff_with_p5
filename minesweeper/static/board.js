@@ -29,7 +29,7 @@ Board.prototype = {
 
   set_mines: function(){
     count = 0;
-    while (count <= mine_count){
+    while (count < mine_count){
       ranval = this.random_selector();
       if (this.block_list[ranval.x][ranval.y].mine == false){
         count += 1;

@@ -12,8 +12,10 @@ Block.prototype = {
   show: function(start){
     fill(this.color);
     rect(this.location.x,this.location.y,block_size,block_size,block_size/5);
-    fill('white');
-    text(this.value,this.location.x,this.location.y);
+    if (this.state == 'open'){
+      fill('white');
+      text(this.value,this.location.x,this.location.y);
+    }
   },
 
   clicker: function(){
@@ -21,6 +23,7 @@ Block.prototype = {
       this.color = 'red';
     }
     else{
+      this.state = 'open';
       this.color = 'green';
     }
   },
