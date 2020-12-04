@@ -134,8 +134,12 @@ Board.prototype = {
       console.log(x,y);
       return;
     }
-    else if (this.block_list[x][y].state == 'open' || this.block_list[x][y].value > 0){
+    else if (this.block_list[x][y].state == 'open'){
       return;
+    }
+    else if (this.block_list[x][y].value > 0){
+      this.block_list[x][y].state = 'open';
+      return
     }
     this.block_list[x][y].state = 'open';
     this.flood_fill(x+1,y);

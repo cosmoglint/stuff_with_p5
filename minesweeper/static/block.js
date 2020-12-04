@@ -25,6 +25,9 @@ Block.prototype = {
       if (this.state == 'open' && this.value == 0){
         fill('grey');
       }
+      else if (this.state == 'open' && this.value > 0){
+        fill('green');
+      }
       else{
         fill(this.color);
       }
