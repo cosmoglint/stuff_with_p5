@@ -5,6 +5,8 @@ var the_board;
 var row_count = 10;
 var column_count = 10;
 
+var start_frame;
+var end_frame;
 
 function random_color(){
   thecol = color(random(0,255),random(0,255),random(0,255));
@@ -29,6 +31,11 @@ function mousePressed(){
   // the_board.clicked();
 }
 
+function mouseReleased(){
+  fr_count = end_counter();
+  the_board.clicked(fr_count);
+}
+
 function init(){
   ww = windowWidth;
   wh = windowHeight;
@@ -46,6 +53,7 @@ function init(){
 
 function setup(){
   rectMode(CENTER);
+  frameRate(30);
   init();
 }
 

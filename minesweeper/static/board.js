@@ -29,12 +29,12 @@ Board.prototype = {
     }
   },
 
-  clicked: function(){
+  clicked: function(fr_count){
     for (let i=0; i<this.rows; i++){
       for (let j=0; j<this.columns; j++){
         d = dist(mouseX,mouseY,i* (block_size+block_padding) + this.corner.x,j*(block_size+block_padding) + this.corner.y)
         if (d < block_size/2){
-          if (mouseButton == LEFT){
+          if (fr_count < 10){
             this.block_list[i][j].clicker();
           }
           else{
