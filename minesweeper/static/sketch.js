@@ -54,7 +54,7 @@ function mouseReleased(event){
 }
 
 function end(){
-  game_state = 'end'
+  game_state = 'end';
   the_board.ender();
 }
 
@@ -94,5 +94,7 @@ function setup(){
 
 function draw(){
   // circle(mouseX,mouseY,100);
+  game_state = the_board.is_end();
+  (game_state == 'end') ? end() : true;
   the_board.render();
 }

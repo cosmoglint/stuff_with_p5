@@ -146,6 +146,10 @@ Board.prototype = {
     this.flood_fill(x-1,y);
     this.flood_fill(x,y+1);
     this.flood_fill(x,y-1);
+    this.flood_fill(x+1,y+1);
+    this.flood_fill(x-1,y-1);
+    this.flood_fill(x-1,y+1);
+    this.flood_fill(x+1,y-1);
     return;
   },
 
@@ -157,5 +161,16 @@ Board.prototype = {
         }
       }
     }
+  },
+
+  is_end: function(){
+    for (let i=0; i<this.rows; i++){
+      for (let j=0; j<this.columns; j++){
+        if (this.block_list[i][j].value > 0 && this.block_list[i][j].state == 'default'){
+          return 'run';
+        }
+      }
+    }
+    return 'end';
   }
 }
