@@ -22,7 +22,12 @@ Block.prototype = {
       }
     }
     else{
-      fill(this.color);
+      if (this.state == 'open' && this.value == 0){
+        fill('grey');
+      }
+      else{
+        fill(this.color);
+      }
     }
     rect(this.location.x,this.location.y,block_size,block_size,block_size/5);
     if (this.state == 'open'){
@@ -38,6 +43,9 @@ Block.prototype = {
     if (this.mine){
       this.color = 'red';
       end();
+    }
+    else if (this.value == 0){
+      zero_flood_fill(this.x_pos,this.y_pos);
     }
     else{
       this.state = 'open';

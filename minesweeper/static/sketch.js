@@ -22,6 +22,12 @@ function reportsize(){
 	resizeCanvas(windowWidth,windowHeight);
 }
 
+window.addEventListener('resize', reportsize);
+
+function zero_flood_fill(x,y){
+  the_board.flood_fill(x,y);
+}
+
 function start_counter(){
     start_frame = frameCount;
 }
