@@ -8,6 +8,8 @@ var delay = 9;// frames between clicks
 var row_count = 10;
 var column_count = 10;
 
+var game_state = 'run';
+
 var start_frame;
 var end_frame;
 
@@ -46,7 +48,8 @@ function mouseReleased(event){
 }
 
 function end(){
-
+  game_state = 'end'
+  the_board.ender();
 }
 
 function set_board(){

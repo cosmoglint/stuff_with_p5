@@ -127,5 +127,15 @@ Board.prototype = {
         }
       }
     }
+  },
+
+  ender: function(){
+    for (let i=0; i<this.rows; i++){
+      for (let j=0; j<this.columns; j++){
+        if (this.block_list[i][j].state == 'default'){
+          this.block_list[i][j].state = 'open';
+        }
+      }
+    }
   }
 }
