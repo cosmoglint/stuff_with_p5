@@ -87,6 +87,7 @@ Board.prototype = {
               }
             }
           }
+          blck.value = sum;
         }
       }
     }

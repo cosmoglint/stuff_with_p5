@@ -10,14 +10,19 @@ function Block(x,y,corner){
 
 Block.prototype = {
   show: function(start){
-    fill('white');
-    text(this.value,this.location.x,this.location.y);
     fill(this.color);
     rect(this.location.x,this.location.y,block_size,block_size,block_size/5);
+    fill('white');
+    text(this.value,this.location.x,this.location.y);
   },
 
   clicker: function(){
-    this.color = 'red';
+    if (this.mine){
+      this.color = 'red';
+    }
+    else{
+      this.color = 'green';
+    }
   },
 
   changer: function(){
