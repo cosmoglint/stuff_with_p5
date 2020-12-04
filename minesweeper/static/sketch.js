@@ -26,14 +26,20 @@ function end_counter(){
   return (end_frame - start_frame);
 }
 
-function mousePressed(){
+function mousePressed(event){
+  console.log(event);
   start_counter();
   // the_board.clicked();
 }
 
-function mouseReleased(){
+function mouseReleased(event){
   fr_count = end_counter();
-  the_board.clicked(fr_count);
+  if (event.button == 0){
+    the_board.clicked(fr_count);
+  }
+  else {
+    the_board.right_clicked();
+  }
 }
 
 function init(){
