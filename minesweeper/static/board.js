@@ -127,5 +127,53 @@ Board.prototype = {
         }
       }
     }
+  },
+
+  flood_fill: function(x,y){
+    if (x>=this.rows || x<0 || y>= this.columns || y<0){
+      // console.log(x,y);
+      return;
+    }
+    else if (this.block_list[x][y].state == 'open'){
+      return;
+    }
+    else if (this.block_list[x][y].value > 0){
+      this.block_list[x][y].state = 'open';
+      return
+    }
+    this.block_list[x][y].state = 'open';
+    this.flood_fill(x+1,y);
+    this.flood_fill(x-1,y);
+    this.flood_fill(x,y+1);
+    this.flood_fill(x,y-1);
+    this.flood_fill(x+1,y+1);
+    this.flood_fill(x-1,y-1);
+    this.flood_fill(x-1,y+1);
+    this.flood_fill(x+1,y-1);
+    return;
+  },
+
+  ender: function(){
+    for (let i=0; i<this.rows; i++){
+      for (let j=0; j<this.columns; j++){
+        if (this.block_list[i][j].state == 'default'){
+          this.block_list[i][j].state = 'open';
+        }
+      }
+    }
+  },
+
+  is_end: function(){
+    if (game_state == 'end'){
+      return;
+    }
+    for (let i=0; i<this.rows; i++){
+      for (let j=0; j<this.columns; j++){
+        if (this.block_list[i][j].value >= 0 && this.block_list[i][j].state == 'default'){
+          return;
+        }
+      }
+    }
+    game_state = 'win';
   }
 }

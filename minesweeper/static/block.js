@@ -9,18 +9,46 @@ function Block(x,y,corner){
 }
 
 Block.prototype = {
-  show: function(start){
-    fill(this.color);
+  show: function(){
+    if (game_state == 'end' || game_state == 'win'){
+      if (this.mine){
+        fill('red');
+      }
+      else if (this.value == 0){
+        fill('grey');
+      }
+      else {
+          fill('green');
+      }
+    }
+    else{
+      if (this.state == 'open' && this.value == 0){
+        fill('grey');
+      }
+      else if (this.state == 'open' && this.value > 0){
+        fill('green');
+      }
+      else{
+        fill(this.color);
+      }
+    }
     rect(this.location.x,this.location.y,block_size,block_size,block_size/5);
     if (this.state == 'open'){
+
+      textStyle(BOLD);
+      textSize(block_size/2);
       fill('white');
-      text(this.value,this.location.x,this.location.y);
+      text(this.value,this.location.x-block_size/7,this.location.y+block_size/6);
     }
   },
 
   clicker: function(){
     if (this.mine){
       this.color = 'red';
+      end();
+    }
+    else if (this.value == 0){
+      zero_flood_fill(this.x_pos,this.y_pos);
     }
     else{
       this.state = 'open';

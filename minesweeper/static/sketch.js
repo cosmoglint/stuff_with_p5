@@ -8,6 +8,8 @@ var delay = 9;// frames between clicks
 var row_count = 10;
 var column_count = 10;
 
+var game_state = 'run';
+
 var start_frame;
 var end_frame;
 
@@ -18,6 +20,12 @@ function random_color(){
 
 function reportsize(){
 	resizeCanvas(windowWidth,windowHeight);
+}
+
+window.addEventListener('resize', reportsize);
+
+function zero_flood_fill(x,y){
+  the_board.flood_fill(x,y);
 }
 
 function start_counter(){
@@ -46,10 +54,12 @@ function mouseReleased(event){
 }
 
 function end(){
-
+  game_state = 'end';
+  the_board.ender();
 }
 
 function set_board(){
+  game_state = 'run';
   startpos = createVector(bx,by);
   the_board = new Board(row_count,column_count,startpos);
   the_board.create_list();
@@ -76,10 +86,24 @@ function init(){
 function setup(){
   rectMode(CENTER);
   frameRate(30);
+  restart_button = createButton('restart');
+  restart_button.position(20,20);
+  restart_button.mousePressed(init);
   init();
 }
 
 function draw(){
   // circle(mouseX,mouseY,100);
-  the_board.render();
+  the_board.is_end();
+  if (game_state == 'win'){
+    background(0);
+    circle(mouseX,mouseY,100);
+    fill('white');
+    textStyle(BOLD);
+    textSize(50);
+    text("you win babie",ww/2,wh/2);
+  }
+  else{
+    the_board.render();
+  }
 }
