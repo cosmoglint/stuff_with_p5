@@ -34,11 +34,12 @@ Block.prototype = {
     }
     rect(this.location.x,this.location.y,block_size,block_size,block_size/5);
     if (this.state == 'open'){
-
-      textStyle(BOLD);
-      textSize(block_size/2);
-      fill('white');
-      text(this.value,this.location.x-block_size/7,this.location.y+block_size/6);
+      if (this.value > 0){
+        textStyle(BOLD);
+        textSize(block_size/2);
+        fill('white');
+        text(this.value,this.location.x,this.location.y+block_size/6);
+      }
     }
   },
 
