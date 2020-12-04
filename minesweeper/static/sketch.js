@@ -30,7 +30,7 @@ function end_counter(){
 }
 
 function mousePressed(event){
-  console.log(event);
+  // console.log(event);
   start_counter();
   // the_board.clicked();
 }
@@ -45,6 +45,21 @@ function mouseReleased(event){
   }
 }
 
+function end(){
+
+}
+
+function set_board(){
+  startpos = createVector(bx,by);
+  the_board = new Board(row_count,column_count,startpos);
+  the_board.create_list();
+  the_board.add_items();
+  the_board.set_mines();
+  the_board.set_numbers();
+  // the_board.check_mine(the_board.block_list[5][6]);
+
+}
+
 function init(){
   ww = windowWidth;
   wh = windowHeight;
@@ -54,13 +69,8 @@ function init(){
 
   bx = ww/2 - (row_count/2)*(block_size + block_padding);
   by = wh/2 - (column_count/2)*(block_size + block_padding);
-  startpos = createVector(bx,by);
-  the_board = new Board(row_count,column_count,startpos);
-  the_board.create_list();
-  the_board.add_items();
-  the_board.set_mines();
-  the_board.set_numbers();
-  // the_board.check_mine(the_board.block_list[5][6]);
+
+  set_board();
 }
 
 function setup(){
