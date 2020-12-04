@@ -59,8 +59,8 @@ function init(){
   the_board.create_list();
   the_board.add_items();
   the_board.set_mines();
-  // the_board.set_numbers();
-  the_board.check_mine(the_board[5][6]);
+  the_board.set_numbers();
+  // the_board.check_mine(the_board.block_list[5][6]);
 }
 
 function setup(){
