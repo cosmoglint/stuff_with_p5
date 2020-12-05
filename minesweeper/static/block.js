@@ -13,7 +13,7 @@ Block.prototype = {
     fill(col)
     strokeWeight(2);
     stroke(col);
-    rect(this.location.x,this.location.y,block_size,block_size,block_size/block_radius);
+    rect(this.location.x,this.location.y,block_size,block_size,block_size*block_radius);
   },
 
   show: function(){

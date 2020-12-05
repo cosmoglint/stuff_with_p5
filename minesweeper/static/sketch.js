@@ -14,9 +14,13 @@ var column_input;
 // var block_size = 50;
 // var block_padding = 20;
 
-var block_rate = 1.5; // inverse i.e  1/2
-var padding_rate = 15; // inverse i.e 1/3
-var block_radius = 10; // inverse i.e 1/10
+// var block_rate = 1.5; // inverse i.e  1/2
+// var padding_rate = 15; // inverse i.e 1/3
+// var block_radius = 10; // inverse i.e 1/10
+
+var block_rate = 0.5; // not inverse but actual value
+var padding_rate = 0.05;
+var block_radius = 0.05;
 
 var block_size;
 var block_padding;
@@ -100,8 +104,8 @@ function set_board(){
 function set_block_size(){
   val = Math.min(ww,wh);
 
-  block_size = (val == wh) ? (wh/column_count)/block_rate : (ww/column_count)/block_rate;
-  block_padding = (val == wh) ? (wh/column_count)/padding_rate : (ww/column_count)/padding_rate;
+  block_size = (val == wh) ? (wh/column_count)*block_rate : (ww/column_count)*block_rate;
+  block_padding = (val == wh) ? (wh/column_count)*padding_rate : (ww/column_count)*padding_rate;
 
   background(bg_col);
 }
