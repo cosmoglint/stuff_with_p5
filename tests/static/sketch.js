@@ -18,6 +18,7 @@ function reportsize(){
 
 window.addEventListener('resize', reportsize);
 
+// file location needs to be relative to html file
 function preload(){
     flag = loadImage('static/eso1907a.jpg')
 }
