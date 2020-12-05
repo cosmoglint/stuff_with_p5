@@ -74,7 +74,7 @@ Board.prototype = {
           else if (j == this.columns-1){
             sum += (this.check_mine(this.block_list[i+1][j]) + this.check_mine(this.block_list[i-1][j]) + this.check_mine(this.block_list[i-1][j-1]) + this.check_mine(this.block_list[i][j-1]) + this.check_mine(this.block_list[i+1][j-1]));
           }
-          else if (i == this.columns-1){
+          else if (i == this.rows-1){
             sum += (this.check_mine(this.block_list[i][j+1]) + this.check_mine(this.block_list[i][j-1]) + this.check_mine(this.block_list[i-1][j+1]) + this.check_mine(this.block_list[i-1][j-1]) + this.check_mine(this.block_list[i-1][j]));
           }
           else{
@@ -93,10 +93,25 @@ Board.prototype = {
     }
   },
 
+
+
   render: function(){
+    background(bg_col);
     for (let i=0; i<this.rows; i++){
       for (let j=0; j<this.columns; j++){
         this.block_list[i][j].show();
+      }
+    }
+  },
+
+  check_hover: function(mx,my){
+    for (let i=0; i<this.rows; i++){
+      for (let j=0; j<this.columns; j++){
+        d = dist(mx,my,i* (block_size+block_padding) + this.corner.x,j*(block_size+block_padding) + this.corner.y)
+        if (d < block_size/2){
+          this.block_list[i][j].hover();
+        }
+        // this.block_list[i][j].color_flipper();
       }
     }
   },

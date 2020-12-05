@@ -5,47 +5,55 @@ function Block(x,y,corner){
   this.mine = false;
   this.value = -1;
   this.state = 'default';
-  this.color = 'black';
+  this.color = closed_col;
 }
 
 Block.prototype = {
+  draw_block: function(col){
+    fill(col)
+    strokeWeight(2);
+    stroke(col);
+    rect(this.location.x,this.location.y,block_size,block_size,block_size*block_radius);
+  },
+
   show: function(){
     if (game_state == 'end' || game_state == 'win'){
       if (this.mine){
-        fill('red');
+        this.color = mine_col;
       }
       else if (this.value == 0){
-        fill('grey');
+        this.color = empty_col;
       }
       else {
-          fill('green');
+        this.color = safe_col;
       }
     }
     else{
       if (this.state == 'open' && this.value == 0){
-        fill('grey');
+        this.color = empty_col;
       }
       else if (this.state == 'open' && this.value > 0){
-        fill('green');
+        this.color = safe_col;
       }
       else{
         fill(this.color);
       }
     }
-    rect(this.location.x,this.location.y,block_size,block_size,block_size/5);
+    this.draw_block(this.color);
     if (this.state == 'open'){
       if (this.value > 0){
         textStyle(BOLD);
         textSize(block_size/2);
-        fill('white');
+        fill(closed_col);
         text(this.value,this.location.x,this.location.y+block_size/6);
       }
     }
   },
 
   clicker: function(){
+    console.log(this.x_pos,this.y_pos);
     if (this.mine){
-      this.color = 'red';
+      this.color = mine_col;
       end();
     }
     else if (this.value == 0){
@@ -53,15 +61,18 @@ Block.prototype = {
     }
     else{
       this.state = 'open';
-      this.color = 'green';
+      this.color = safe_col;
     }
   },
 
   changer: function(){
-    this.color = (this.color == 'white') ? 'black' : 'white';
+    this.color = (this.color == flag_col) ? closed_col : flag_col;
   },
 
-  color_flipper: function(){
-    this.color = (this.color == 'white') ? 'black' : 'white';
+  hover: function(){
+    if (this.state == 'default'){
+      this.draw_block(hover_col);
+    }
   }
+
 }
