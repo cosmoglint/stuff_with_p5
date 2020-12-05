@@ -32,11 +32,11 @@ var end_frame;
 
 
 const mine_col = 'red';
-const safe_col = 'blue';
+const safe_col = 'rgb(0, 220, 250)';
 const flag_col = 'grey';
 const empty_col = bg_col;
 const closed_col = 'white';
-const hover_col = (50,40,40);
+const hover_col = 'rgb(50,40,40)';
 
 function random_color(){
   thecol = color(random(0,255),random(0,255),random(0,255));
