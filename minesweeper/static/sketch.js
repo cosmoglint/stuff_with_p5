@@ -2,11 +2,11 @@ var the_board;
 
 var bg_col = 'black';
 
-var mine_count = 15;
+var mine_count = 100;
 var delay = 9;// frames between clicks
 
-var row_count = 10;
-var column_count = 10;
+var row_count = 30;
+var column_count = 30;
 
 var row_input;
 var column_input;
@@ -18,9 +18,9 @@ var column_input;
 // var padding_rate = 15; // inverse i.e 1/3
 // var block_radius = 10; // inverse i.e 1/10
 
-var block_rate = 0.5; // not inverse but actual value
-var padding_rate = 0.05;
-var block_radius = 0.05;
+var block_rate = 0.8; // not inverse but actual value
+var padding_rate = block_rate * 0.1;
+var block_radius = block_rate * 0.1;
 
 var block_size;
 var block_padding;
