@@ -12,27 +12,29 @@ Block.prototype = {
   show: function(){
     if (game_state == 'end' || game_state == 'win'){
       if (this.mine){
-        fill(mine_col);
+        this.color = mine_col;
       }
       else if (this.value == 0){
-        fill(empty_col);
+        this.color = empty_col;
       }
       else {
-          fill(safe_col);
+        this.color = safe_col;
       }
     }
     else{
       if (this.state == 'open' && this.value == 0){
-        fill(empty_col);
+        this.color = empty_col;
       }
       else if (this.state == 'open' && this.value > 0){
-        fill(safe_col);
+        this.color = safe_col;
       }
       else{
         fill(this.color);
       }
     }
-    noStroke();
+    fill(this.color)
+    strokeWeight(2);
+    stroke(this.color);
     rect(this.location.x,this.location.y,block_size,block_size,block_size/5);
     if (this.state == 'open'){
       if (this.value > 0){

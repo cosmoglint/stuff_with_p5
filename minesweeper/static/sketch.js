@@ -4,7 +4,7 @@ var the_board;
 
 var bg_col = 'white';
 
-var mine_count = 25;
+var mine_count = 15;
 var delay = 9;// frames between clicks
 
 var row_count = 10;
