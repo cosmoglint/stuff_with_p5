@@ -15,7 +15,7 @@ Block.prototype = {
         fill(mine_col);
       }
       else if (this.value == 0){
-        fill('grey');
+        fill(empty_col);
       }
       else {
           fill(safe_col);
@@ -23,7 +23,7 @@ Block.prototype = {
     }
     else{
       if (this.state == 'open' && this.value == 0){
-        fill('grey');
+        fill(empty_col);
       }
       else if (this.state == 'open' && this.value > 0){
         fill(safe_col);
@@ -32,6 +32,7 @@ Block.prototype = {
         fill(this.color);
       }
     }
+    noStroke();
     rect(this.location.x,this.location.y,block_size,block_size,block_size/5);
     if (this.state == 'open'){
       if (this.value > 0){

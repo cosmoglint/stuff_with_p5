@@ -2,6 +2,8 @@ var block_size = 50;
 var block_padding = 25;
 var the_board;
 
+var bg_col = 'white';
+
 var mine_count = 25;
 var delay = 9;// frames between clicks
 
@@ -17,6 +19,7 @@ var end_frame;
 const mine_col = 'red';
 const safe_col = 'green';
 const flag_col = 'grey';
+const empty_col = bg_col;
 
 function random_color(){
   thecol = color(random(0,255),random(0,255),random(0,255));
@@ -84,6 +87,7 @@ function init(){
 
   bx = ww/2 - (row_count/2)*(block_size + block_padding);
   by = wh/2 - (column_count/2)*(block_size + block_padding);
+  background(bg_col);
 
   set_board();
 }
