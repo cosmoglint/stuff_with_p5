@@ -8,6 +8,9 @@ var delay = 9;// frames between clicks
 var row_count = 10;
 var column_count = 10;
 
+var row_input;
+var column_input;
+
 // var block_size = 50;
 // var block_padding = 20;
 
@@ -25,6 +28,7 @@ const safe_col = 'blue';
 const flag_col = 'grey';
 const empty_col = bg_col;
 const closed_col = 'white';
+const hover_col = (50,40,40);
 
 function random_color(){
   thecol = color(random(0,255),random(0,255),random(0,255));
@@ -50,6 +54,10 @@ function end_counter(){
   return (end_frame - start_frame);
 }
 
+// function mouseMoved(){
+//   the_board.check_hover();
+// }
+
 function mousePressed(event){
   // console.log(event);
   start_counter();
@@ -72,6 +80,8 @@ function end(){
 }
 
 function set_board(){
+  bx = ww/2 - (row_count/2 -1)*(block_size + block_padding);
+  by = wh/2 - (column_count/2)*(block_size + block_padding) + block_size + block_padding;
   game_state = 'run';
   startpos = createVector(bx,by);
   the_board = new Board(row_count,column_count,startpos);
@@ -83,6 +93,15 @@ function set_board(){
 
 }
 
+function set_block_size(){
+  val = Math.min(ww,wh);
+
+  block_size = (val == wh) ? (wh/column_count)/2 : (ww/column_count)/2;
+  block_padding = (val == wh) ? (wh/column_count)/3 : (ww/column_count)/3;
+
+  background(bg_col);
+}
+
 function init(){
   ww = windowWidth;
   wh = windowHeight;
@@ -90,17 +109,7 @@ function init(){
   canvas.style('z-index','-1');
   canvas.position(0,0);
 
-  val = Math.min(ww,wh);
-
-  block_size = (val == wh) ? (wh/column_count)/2 : (ww/column_count)/2;
-  block_padding = (val == wh) ? (wh/column_count)/3 : (ww/column_count)/3;
-
-  bx = ww/2 - (row_count/2 -1)*(block_size + block_padding);
-  by = wh/2 - (column_count/2)*(block_size + block_padding) + block_size + block_padding;
-  background(bg_col);
-
-
-
+  set_block_size();
   set_board();
 }
 
@@ -111,6 +120,12 @@ function setup(){
   frameRate(30);
   init();
 
+  row_input = createInput(55);
+  column_input = createInput('column_count');
+
+  row_input.position(20,100);
+  column_input.position(20,200);
+
   restart_button = createButton('restart');
   restart_button.position(ww/2,(block_size + block_padding));
   restart_button.mousePressed(init);
@@ -118,8 +133,10 @@ function setup(){
 
 function draw(){
   // circle(mouseX,mouseY,100);
+
   the_board.render();
   the_board.is_end();
+  the_board.check_hover(mouseX,mouseY);
   if (game_state == 'win'){
     // background(0);
     // circle(mouseX,mouseY,100);

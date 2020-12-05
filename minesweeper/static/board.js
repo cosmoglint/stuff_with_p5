@@ -102,6 +102,18 @@ Board.prototype = {
     }
   },
 
+  check_hover: function(mx,my){
+    for (let i=0; i<this.rows; i++){
+      for (let j=0; j<this.columns; j++){
+        d = dist(mx,my,i* (block_size+block_padding) + this.corner.x,j*(block_size+block_padding) + this.corner.y)
+        if (d < block_size/2){
+          this.block_list[i][j].hover();
+        }
+        // this.block_list[i][j].color_flipper();
+      }
+    }
+  },
+
   clicked: function(fr_count){
     for (let i=0; i<this.rows; i++){
       for (let j=0; j<this.columns; j++){

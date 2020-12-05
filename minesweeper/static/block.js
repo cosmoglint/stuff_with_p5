@@ -9,6 +9,13 @@ function Block(x,y,corner){
 }
 
 Block.prototype = {
+  draw_block: function(col){
+    fill(col)
+    strokeWeight(2);
+    stroke(col);
+    rect(this.location.x,this.location.y,block_size,block_size,block_size/5);
+  },
+
   show: function(){
     if (game_state == 'end' || game_state == 'win'){
       if (this.mine){
@@ -32,10 +39,7 @@ Block.prototype = {
         fill(this.color);
       }
     }
-    fill(this.color)
-    strokeWeight(2);
-    stroke(this.color);
-    rect(this.location.x,this.location.y,block_size,block_size,block_size/5);
+    this.draw_block(this.color);
     if (this.state == 'open'){
       if (this.value > 0){
         textStyle(BOLD);
@@ -63,5 +67,11 @@ Block.prototype = {
   changer: function(){
     this.color = (this.color == flag_col) ? closed_col : flag_col;
   },
+
+  hover: function(){
+    if (this.state == 'default'){
+      this.draw_block(hover_col);
+    }
+  }
 
 }
