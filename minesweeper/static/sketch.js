@@ -1,5 +1,3 @@
-var block_size = 50;
-var block_padding = 20;
 var the_board;
 
 var bg_col = 'black';
@@ -7,8 +5,14 @@ var bg_col = 'black';
 var mine_count = 15;
 var delay = 9;// frames between clicks
 
-var row_count = 10;
-var column_count = 10;
+var row_count = 30;
+var column_count = 30;
+
+// var block_size = 50;
+// var block_padding = 20;
+
+var block_size = 50;
+var block_padding = 20;
 
 var game_state = 'run';
 
@@ -86,9 +90,16 @@ function init(){
   canvas.style('z-index','-1');
   canvas.position(0,0);
 
+  val = Math.min(ww,wh);
+
+  block_size = (val == wh) ? (wh/column_count)/1.8 : (ww/column_count)/1.8;
+  block_padding = (val == wh) ? (wh/column_count)/3 : (ww/column_count)/3;
+
   bx = ww/2 - (row_count/2 -1)*(block_size + block_padding);
   by = wh/2 - (column_count/2)*(block_size + block_padding) + block_size + block_padding;
   background(bg_col);
+
+
 
   set_board();
 }
@@ -112,8 +123,8 @@ function draw(){
   if (game_state == 'win'){
     // background(0);
     // circle(mouseX,mouseY,100);
-    fill('black');
-    textSize(50);
-    text("you win babie",ww/2,block_size);
+    fill(closed_col);
+    textSize(100);
+    text("you win!",ww/2,wh/2);
   }
 }

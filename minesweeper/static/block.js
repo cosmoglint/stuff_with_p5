@@ -40,7 +40,7 @@ Block.prototype = {
       if (this.value > 0){
         textStyle(BOLD);
         textSize(block_size/2);
-        fill('white');
+        fill(closed_col);
         text(this.value,this.location.x,this.location.y+block_size/6);
       }
     }
