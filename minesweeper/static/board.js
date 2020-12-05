@@ -94,6 +94,7 @@ Board.prototype = {
   },
 
   render: function(){
+    background(bg_col);
     for (let i=0; i<this.rows; i++){
       for (let j=0; j<this.columns; j++){
         this.block_list[i][j].show();

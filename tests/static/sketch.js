@@ -1,3 +1,4 @@
+var flag;
 
 function random_color(){
   thecol = color(random(0,255),random(0,255),random(0,255));
@@ -18,7 +19,7 @@ function reportsize(){
 window.addEventListener('resize', reportsize);
 
 function preload(){
-    flag = loadImage('./flag.png')
+    flag = loadImage('static/eso1907a.jpg')
 }
 
 function init(){
@@ -34,5 +35,7 @@ function setup(){
 }
 
 function draw(){
-  circle(mouseX,mouseY,100);
+
+  // circle(mouseX,mouseY,100);
+  image(flag,0,0);
 }
