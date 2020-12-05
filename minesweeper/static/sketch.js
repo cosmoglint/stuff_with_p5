@@ -6,7 +6,7 @@ var mine_count = 100;
 var delay = 9;// frames between clicks
 
 var row_count = 30;
-var column_count = 30;
+var column_count = 16;
 
 var row_input;
 var column_input;
@@ -102,10 +102,10 @@ function set_board(){
 }
 
 function set_block_size(){
-  val = Math.min(ww,wh);
-
-  block_size = (val == wh) ? (wh/column_count)*block_rate : (ww/column_count)*block_rate;
-  block_padding = (val == wh) ? (wh/column_count)*padding_rate : (ww/column_count)*padding_rate;
+  win_val = Math.min(ww,wh);
+  lines_val = Math.max(row_count,column_count);
+  block_size = (win_val == wh) ? (wh/lines_val)*block_rate : (ww/lines_val)*block_rate;
+  block_padding = (win_val == wh) ? (wh/lines_val)*padding_rate : (ww/lines_val)*padding_rate;
 
   background(bg_col);
 }

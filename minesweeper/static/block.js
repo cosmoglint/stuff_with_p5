@@ -51,6 +51,7 @@ Block.prototype = {
   },
 
   clicker: function(){
+    console.log(this.x_pos,this.y_pos);
     if (this.mine){
       this.color = mine_col;
       end();

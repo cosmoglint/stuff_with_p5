@@ -74,7 +74,7 @@ Board.prototype = {
           else if (j == this.columns-1){
             sum += (this.check_mine(this.block_list[i+1][j]) + this.check_mine(this.block_list[i-1][j]) + this.check_mine(this.block_list[i-1][j-1]) + this.check_mine(this.block_list[i][j-1]) + this.check_mine(this.block_list[i+1][j-1]));
           }
-          else if (i == this.columns-1){
+          else if (i == this.rows-1){
             sum += (this.check_mine(this.block_list[i][j+1]) + this.check_mine(this.block_list[i][j-1]) + this.check_mine(this.block_list[i-1][j+1]) + this.check_mine(this.block_list[i-1][j-1]) + this.check_mine(this.block_list[i-1][j]));
           }
           else{
@@ -92,6 +92,8 @@ Board.prototype = {
       }
     }
   },
+
+
 
   render: function(){
     background(bg_col);
