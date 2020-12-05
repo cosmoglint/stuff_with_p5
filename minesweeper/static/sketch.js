@@ -20,6 +20,7 @@ const mine_col = 'red';
 const safe_col = 'green';
 const flag_col = 'grey';
 const empty_col = bg_col;
+const closed_col = 'black';
 
 function random_color(){
   thecol = color(random(0,255),random(0,255),random(0,255));
@@ -85,8 +86,8 @@ function init(){
   canvas.style('z-index','-1');
   canvas.position(0,0);
 
-  bx = ww/2 - (row_count/2)*(block_size + block_padding);
-  by = wh/2 - (column_count/2)*(block_size + block_padding);
+  bx = ww/2 - (row_count/2 -1)*(block_size + block_padding);
+  by = wh/2 - (column_count/2)*(block_size + block_padding) + block_size + block_padding;
   background(bg_col);
 
   set_board();
@@ -97,10 +98,11 @@ function setup(){
   textStyle(BOLD);
   textAlign(CENTER);
   frameRate(30);
-  restart_button = createButton('restart');
-  restart_button.position(20,20);
-  restart_button.mousePressed(init);
   init();
+
+  restart_button = createButton('restart');
+  restart_button.position(ww/2,(block_size + block_padding));
+  restart_button.mousePressed(init);
 }
 
 function draw(){

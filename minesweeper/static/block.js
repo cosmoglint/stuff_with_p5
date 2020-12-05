@@ -5,7 +5,7 @@ function Block(x,y,corner){
   this.mine = false;
   this.value = -1;
   this.state = 'default';
-  this.color = 'black';
+  this.color = closed_col;
 }
 
 Block.prototype = {
@@ -59,7 +59,7 @@ Block.prototype = {
   },
 
   changer: function(){
-    this.color = (this.color == 'white') ? 'black' : 'white';
+    this.color = (this.color == flag_col) ? closed_col : flag_col;
   },
 
 }
