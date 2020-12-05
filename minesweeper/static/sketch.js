@@ -2,7 +2,7 @@ var block_size = 50;
 var block_padding = 25;
 var the_board;
 
-var mine_count = 10;
+var mine_count = 25;
 var delay = 9;// frames between clicks
 
 var row_count = 10;
@@ -12,6 +12,11 @@ var game_state = 'run';
 
 var start_frame;
 var end_frame;
+
+
+const mine_col = 'red';
+const safe_col = 'green';
+const flag_col = 'grey';
 
 function random_color(){
   thecol = color(random(0,255),random(0,255),random(0,255));

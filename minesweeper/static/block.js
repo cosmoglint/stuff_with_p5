@@ -12,13 +12,13 @@ Block.prototype = {
   show: function(){
     if (game_state == 'end' || game_state == 'win'){
       if (this.mine){
-        fill('red');
+        fill(mine_col);
       }
       else if (this.value == 0){
         fill('grey');
       }
       else {
-          fill('green');
+          fill(safe_col);
       }
     }
     else{
@@ -26,7 +26,7 @@ Block.prototype = {
         fill('grey');
       }
       else if (this.state == 'open' && this.value > 0){
-        fill('green');
+        fill(safe_col);
       }
       else{
         fill(this.color);
@@ -45,7 +45,7 @@ Block.prototype = {
 
   clicker: function(){
     if (this.mine){
-      this.color = 'red';
+      this.color = mine_col;
       end();
     }
     else if (this.value == 0){
@@ -53,7 +53,7 @@ Block.prototype = {
     }
     else{
       this.state = 'open';
-      this.color = 'green';
+      this.color = safe_col;
     }
   },
 
@@ -61,7 +61,4 @@ Block.prototype = {
     this.color = (this.color == 'white') ? 'black' : 'white';
   },
 
-  color_flipper: function(){
-    this.color = (this.color == 'white') ? 'black' : 'white';
-  }
 }
