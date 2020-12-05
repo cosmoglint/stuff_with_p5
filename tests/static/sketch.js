@@ -17,6 +17,9 @@ function reportsize(){
 
 window.addEventListener('resize', reportsize);
 
+function preload(){
+    flag = loadImage('./flag.png')
+}
 
 function init(){
   ww = windowWidth;
