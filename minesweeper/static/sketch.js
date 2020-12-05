@@ -17,7 +17,7 @@ var end_frame;
 
 
 const mine_col = 'red';
-const safe_col = 'green';
+const safe_col = 'blue';
 const flag_col = 'grey';
 const empty_col = bg_col;
 const closed_col = 'black';
