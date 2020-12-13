@@ -6,14 +6,8 @@ function random_color(){
 
 function reportsize(){
 	resizeCanvas(windowWidth,windowHeight);
+	init();
 }
-
-
-// function reportsize(){
-// 	resizeCanvas(windowWidth,windowHeight);
-// 	init();
-// }
-
 
 window.addEventListener('resize', reportsize);
 
@@ -24,6 +18,7 @@ function init(){
   canvas = createCanvas(ww,wh);
   canvas.style('z-index','-1');
   canvas.position(0,0);
+  player_1 = new Player;
 }
 
 function setup(){
