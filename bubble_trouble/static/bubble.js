@@ -3,3 +3,7 @@ function Bubble(x,y,size){
   this.ypos = y;
   this.size = size;
 }
+
+Bubble.prototype.show = function(){
+  circle(this.xpos,this.ypos,this.size);
+}
