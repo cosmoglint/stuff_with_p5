@@ -30,5 +30,5 @@ function setup(){
 
 function draw(){
   player_1.show();
-  circle(mouseX,mouseY,100);
+  // circle(mouseX,mouseY,100);
 }
