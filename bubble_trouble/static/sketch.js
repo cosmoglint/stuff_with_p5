@@ -1,3 +1,6 @@
+let gravity_value = 9.8;
+
+
 
 function random_color(){
   thecol = color(random(0,255),random(0,255),random(0,255));
@@ -31,7 +34,12 @@ function setup(){
 }
 
 function draw(){
+
+  background(0);
+  
   player_1.show();
+
+  bub.gravity();
   bub.show();
   // circle(mouseX,mouseY,100);
 }
