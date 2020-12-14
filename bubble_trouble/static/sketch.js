@@ -1,4 +1,4 @@
-let gravity_value = 9.8;
+let gravity_value = 9.8 * 2.5;
 let groundy;
 
 
@@ -21,7 +21,7 @@ function init(){
   canvas = createCanvas(ww,wh);
   canvas.style('z-index','-1');
   canvas.position(0,0);
-  groundy = wh;
+  bound_box = new Bounds();
 
   player_1 = new Player(100,100);
   player_1.x = ww/2;
