@@ -1,7 +1,11 @@
+let max_bubble_size = 500;
+
 let gravity_value = 0.98 / 1.5;
 let bubble_speed = 10;
 let player_speed = 10;
 let start_speed = 20;
+
+let max_limit;
 
 let bub_array = [];
 
@@ -33,13 +37,15 @@ function init(){
   canvas = createCanvas(ww,wh);
   canvas.style('z-index','-1');
   canvas.position(0,0);
+  max_limit = wh*0.1;
+
   bound_box = new Bounds(0,ww,0,wh);
 
   player_1 = new Player(100,100);
   player_1.x = ww/2;
   player_1.y = wh - 300;
 
-  bub = new Bubble(500,200,500,-1);
+  bub = new Bubble(500,200,0,-1);
   bub_array.push(bub);
 }
 
