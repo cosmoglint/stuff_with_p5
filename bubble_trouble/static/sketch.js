@@ -1,5 +1,5 @@
 let gravity_value = 9.8;
-
+let groundy;
 
 
 function random_color(){
@@ -21,6 +21,7 @@ function init(){
   canvas = createCanvas(ww,wh);
   canvas.style('z-index','-1');
   canvas.position(0,0);
+  groundy = wh;
 
   player_1 = new Player(100,100);
   player_1.x = ww/2;
@@ -36,9 +37,10 @@ function setup(){
 function draw(){
 
   background(0);
-  
+
   player_1.show();
 
+  bub.collision();
   bub.gravity();
   bub.show();
   // circle(mouseX,mouseY,100);
