@@ -23,7 +23,7 @@ function init(){
   canvas = createCanvas(ww,wh);
   canvas.style('z-index','-1');
   canvas.position(0,0);
-  bound_box = new Bounds();
+  bound_box = new Bounds(0,ww,0,wh);
 
   player_1 = new Player(100,100);
   player_1.x = ww/2;
@@ -43,7 +43,7 @@ function draw(){
   player_1.show();
 
   bub.collision();
-  // bub.gravity();
+  bub.gravity();
   bub.move();
   bub.show();
   // circle(mouseX,mouseY,100);
