@@ -1,4 +1,5 @@
 let gravity_value = 9.8 * 2.5;
+let hang_speed = 20;
 let groundy;
 
 
