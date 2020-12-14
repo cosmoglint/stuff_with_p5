@@ -6,6 +6,8 @@ function Bubble(start_x,start_y,size,direction){
   this.radius = this.size/2;
   this.y_velocity = 0;
   this.direction = direction;
+
+  this.alive = true;
 }
 
 Bubble.prototype.show = function(){
@@ -31,4 +33,18 @@ Bubble.prototype.gravity = function(){
 
 Bubble.prototype.move = function(){
   this.xpos += bubble_speed*this.direction;
+}
+
+Bubble.prototype.clicked = function(){
+  d = dist(mouseX,mouseY,this.xpos,this.ypos);
+  if (d<=this.size/2){
+    this.alive = false;
+    this.destroy();
+  }
+}
+
+Bubble.prototype.destroy = function(){
+  l_bub = new Bubble(this.xpos,this.ypos,this.size/2,-1);
+  r_bub = new Bubble(this.xpos,this.ypos,this.size/2,1);
+  bub_array.push(l_bub,r_bub);
 }
