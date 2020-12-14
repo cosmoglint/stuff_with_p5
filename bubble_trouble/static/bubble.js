@@ -6,7 +6,7 @@ function Bubble(start_x,start_y,depth,direction){
   this.max_limit = max_limit*this.depth;
   this.size = max_bubble_size/(2**depth);
   this.radius = this.size/2;
-  this.y_velocity = 0;
+  this.y_velocity = -20;
   this.direction = direction;
   this.genesis = true;
 
@@ -14,15 +14,15 @@ function Bubble(start_x,start_y,depth,direction){
 }
 
 Bubble.prototype.show = function(){
-  this.genesis = false;
   circle(this.xpos,this.ypos,this.size);
 }
 
 Bubble.prototype.collision = function(){
-  if (this.ypos == this.max_limit && this.y_velocity != 0){
-    this.y_velocity = 0;
+  if (this.genesis == false && this.ypos <= this.max_limit && this.y_velocity != 0){
+    this.y_velocity = gravity_value;
   }
   if ((this.ypos + this.radius) >= bound_box.high_y){
+    this.genesis = false;
     this.y_velocity = -this.y_velocity-gravity_value;
   }
   if ((this.xpos + this.radius) >= bound_box.high_x  || (this.xpos - this.radius) <= bound_box.low_x){
