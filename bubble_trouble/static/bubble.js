@@ -1,9 +1,11 @@
-function Bubble(x,y,size){
-  this.xpos = x;
-  this.ypos = y;
+function Bubble(start_x,start_y,size,direction){
+  this.start = createVector(start_x,start_y);
+  this.xpos = this.start.x;
+  this.ypos = this.start.y;
   this.size = size;
   this.radius = this.size/2;
-  this.velocity = createVector(0,1);
+  this.y_velocity = 0;
+  this.direction = direction;
 }
 
 Bubble.prototype.show = function(){
@@ -11,17 +13,22 @@ Bubble.prototype.show = function(){
 }
 
 Bubble.prototype.collision = function(){
-  if ((this.ypos + this.radius) >= groundy){
-    this.velocity.y = -1;
+  if ((this.ypos + this.radius) >= bound_box.high_y){
+    this.y_velocity = -this.y_velocity-gravity_value;
   }
-  else if ((this.ypos - this.radius) <= 0) {
-    this.velocity.y = 1;
-  }
-  else{
-
+  if ((this.xpos + this.radius) >= bound_box.high_x  || (this.xpos - this.radius) <= bound_box.low_x){
+    this.direction *= -1;
   }
 }
 
 Bubble.prototype.gravity = function(){
-  this.ypos += (gravity_value * (this.ypos/groundy) * this.velocity.y);
+  this.y_velocity += gravity_value;
+  this.ypos += this.y_velocity;
+
+  // console.log(this.y_velocity);
+
+}
+
+Bubble.prototype.move = function(){
+  this.xpos += bubble_speed*this.direction;
 }
