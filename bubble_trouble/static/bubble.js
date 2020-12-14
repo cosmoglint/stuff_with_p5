@@ -13,7 +13,7 @@ Bubble.prototype.show = function(){
 
 Bubble.prototype.collision = function(){
   if ((this.ypos + this.radius) >= bound_box.highy){
-    this.velocity = -this.velocity;
+    this.velocity = -this.velocity-gravity_value;
   }
   // else if (this.)
   else{
