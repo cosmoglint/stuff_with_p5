@@ -1,5 +1,5 @@
-let gravity_value = 9.8 * 2.5;
-let hang_speed = 20;
+let gravity_value = 0.1;
+let start_speed = 20;
 let groundy;
 
 
