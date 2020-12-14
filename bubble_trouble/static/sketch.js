@@ -15,6 +15,7 @@ function mousePressed(){
   for (bub of bub_array){
     bub.clicked();
   }
+  return false;
 }
 
 function key_check(){
@@ -38,7 +39,7 @@ function init(){
   player_1.x = ww/2;
   player_1.y = wh - 300;
 
-  bub = new Bubble(200,200,200,-1);
+  bub = new Bubble(500,200,500,-1);
   bub_array.push(bub);
 }
 

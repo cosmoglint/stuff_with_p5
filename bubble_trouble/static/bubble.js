@@ -6,11 +6,13 @@ function Bubble(start_x,start_y,size,direction){
   this.radius = this.size/2;
   this.y_velocity = 0;
   this.direction = direction;
+  this.genesis = true;
 
   this.alive = true;
 }
 
 Bubble.prototype.show = function(){
+  this.genesis = false;
   circle(this.xpos,this.ypos,this.size);
 }
 
@@ -37,7 +39,7 @@ Bubble.prototype.move = function(){
 
 Bubble.prototype.clicked = function(){
   d = dist(mouseX,mouseY,this.xpos,this.ypos);
-  if (d<=this.size/2){
+  if (d<=this.size/2 && this.genesis==false){
     this.alive = false;
     this.destroy();
   }
