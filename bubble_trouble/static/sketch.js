@@ -29,10 +29,11 @@ function init(){
   player_1.x = ww/2;
   player_1.y = wh - 300;
 
-  bub = new Bubble(200,200,200);
+  bub = new Bubble(200,200,200,-1);
 }
 
 function setup(){
+  rectMode(CENTER);
   init();
 }
 

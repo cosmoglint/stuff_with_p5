@@ -1,11 +1,11 @@
-function Bubble(start_x,start_y,size){
+function Bubble(start_x,start_y,size,direction){
   this.start = createVector(start_x,start_y);
   this.xpos = this.start.x;
   this.ypos = this.start.y;
   this.size = size;
   this.radius = this.size/2;
   this.y_velocity = 0;
-  this.direction = 1;
+  this.direction = direction;
 }
 
 Bubble.prototype.show = function(){
