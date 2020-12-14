@@ -1,4 +1,5 @@
-let gravity_value = 0.98 / 2;
+let gravity_value = 0.98 / 1.5;
+let movement_value = 10;
 let start_speed = 20;
 let groundy;
 
@@ -42,7 +43,8 @@ function draw(){
   player_1.show();
 
   bub.collision();
-  bub.gravity();
+  // bub.gravity();
+  bub.move();
   bub.show();
   // circle(mouseX,mouseY,100);
 }

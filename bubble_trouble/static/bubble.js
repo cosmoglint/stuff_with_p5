@@ -4,7 +4,8 @@ function Bubble(start_x,start_y,size){
   this.ypos = this.start.y;
   this.size = size;
   this.radius = this.size/2;
-  this.velocity = 0;
+  this.y_velocity = 0;
+  this.direction = 1;
 }
 
 Bubble.prototype.show = function(){
@@ -12,19 +13,22 @@ Bubble.prototype.show = function(){
 }
 
 Bubble.prototype.collision = function(){
-  if ((this.ypos + this.radius) >= bound_box.highy){
-    this.velocity = -this.velocity-gravity_value;
+  if ((this.ypos + this.radius) >= bound_box.high_y){
+    this.y_velocity = -this.y_velocity-gravity_value;
   }
-  // else if (this.)
-  else{
-
+  if ((this.xpos + this.radius) >= bound_box.high_x  || (this.xpos - this.radius) <= bound_box.low_x){
+    this.direction *= -1;
   }
 }
 
 Bubble.prototype.gravity = function(){
-  this.velocity += gravity_value;
-  this.ypos += this.velocity;
+  this.y_velocity += gravity_value;
+  this.ypos += this.y_velocity;
 
-  console.log(this.velocity);
+  // console.log(this.y_velocity);
 
+}
+
+Bubble.prototype.move = function(){
+  this.xpos += movement_value*this.direction;
 }

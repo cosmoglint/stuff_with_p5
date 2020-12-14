@@ -1,6 +1,6 @@
 function Bounds(){
-  this.lowy = 0;
-  this.highy = wh;
-  this.lowx = 0;
-  this.highx = ww;
+  this.low_y = 0;
+  this.high_y = wh;
+  this.low_x = 0;
+  this.high_x = ww;
 }
