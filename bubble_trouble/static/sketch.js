@@ -1,4 +1,4 @@
-let gravity_value = 0.1;
+let gravity_value = 0.98 / 2;
 let start_speed = 20;
 let groundy;
 
