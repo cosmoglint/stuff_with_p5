@@ -23,5 +23,5 @@ Bubble.prototype.collision = function(){
 }
 
 Bubble.prototype.gravity = function(){
-  this.ypos += (gravity_value * this.velocity.y);
+  this.ypos += (gravity_value * (this.ypos/groundy) * this.velocity.y);
 }
