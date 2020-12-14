@@ -1,5 +1,6 @@
 let gravity_value = 0.98 / 1.5;
-let movement_value = 10;
+let bubble_speed = 10;
+let player_speed = 10;
 let start_speed = 20;
 let groundy;
 
@@ -9,13 +10,14 @@ function random_color(){
   return thecol;
 }
 
-function reportsize(){
-	resizeCanvas(windowWidth,windowHeight);
-	init();
+function key_check(){
+  if (keyIsDown(LEFT_ARROW)){
+    player_1.move(-1);
+  }
+  if (keyIsDown(RIGHT_ARROW)){
+    player_1.move(1);
+  }
 }
-
-window.addEventListener('resize', reportsize);
-
 
 function init(){
   ww = windowWidth;
@@ -41,6 +43,9 @@ function draw(){
 
   background(0);
 
+  key_check();
+
+  // player_1.move(1);
   player_1.show();
 
   bub.collision();

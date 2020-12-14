@@ -8,3 +8,7 @@ function Player(wid,hei){
 Player.prototype.show = function(){
   rect(this.xpos,this.ypos,this.width,this.height);
 }
+
+Player.prototype.move = function(direction){
+  this.xpos += player_speed*direction;
+}

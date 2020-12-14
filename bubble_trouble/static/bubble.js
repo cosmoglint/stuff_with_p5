@@ -30,5 +30,5 @@ Bubble.prototype.gravity = function(){
 }
 
 Bubble.prototype.move = function(){
-  this.xpos += movement_value*this.direction;
+  this.xpos += bubble_speed*this.direction;
 }
