@@ -19,6 +19,17 @@ function Wire(x){
   this.height = wh;
   this.top = wh;
   this.ypos = this.top + this.height/2;
+  this.live = true;
+}
+
+Wire.prototype.travel = function(){
+  if (this.top<=0){
+    this.live = false;
+  }
+  else{
+    this.top -= wire_speed;
+    this.ypos -= wire_speed;
+  }
 }
 
 Wire.prototype.show = function(){
