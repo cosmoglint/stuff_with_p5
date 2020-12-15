@@ -26,6 +26,13 @@ function mousePressed(){
   return false;
 }
 
+function keyPressed(){
+  if (keyCode == 32){
+    wire_array.push(new Wire(player_1.xpos));
+  }
+  console.log(keyCode);
+}
+
 function key_check(){
   if (keyIsDown(LEFT_ARROW)){
     player_1.move(-1);
@@ -67,6 +74,7 @@ function draw(){
   key_check();
 
   for (wire of wire_array){
+    wire.collide();
     if (wire.live){
       wire.travel();
       wire.show();

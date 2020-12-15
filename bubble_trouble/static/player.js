@@ -22,6 +22,12 @@ function Wire(x){
   this.live = true;
 }
 
+Wire.prototype.collide = function(){
+  if (this.top<=0){
+    this.live = false;
+  }
+}
+
 Wire.prototype.travel = function(){
   if (this.top<=0){
     this.live = false;
