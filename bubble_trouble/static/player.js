@@ -17,6 +17,7 @@ Player.prototype.move = function(direction){
 function Wire(x){
   this.xpos = x;
   this.height = wh;
+  this.width = wire_width;
   this.top = wh;
   this.ypos = this.top + this.height/2;
   this.live = true;
@@ -39,5 +40,5 @@ Wire.prototype.travel = function(){
 }
 
 Wire.prototype.show = function(){
-  rect(this.xpos,this.ypos,wire_width,this.height);
+  rect(this.xpos,this.ypos,this.width,this.height);
 }

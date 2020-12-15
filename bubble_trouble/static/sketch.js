@@ -27,7 +27,7 @@ function mousePressed(){
 }
 
 function keyPressed(){
-  if (keyCode == 32){
+  if (keyCode == 32 && wire_array.length==0){
     wire_array.push(new Wire(player_1.xpos));
   }
   console.log(keyCode);
@@ -51,8 +51,6 @@ function init(){
 
   bound_box = new Bounds(0,ww,0,wh);
 
-  test_wire = new Wire(ww/2);
-  wire_array.push(test_wire);
 
   player_1 = new Player(100,100);
   player_1.x = ww/2;
@@ -87,6 +85,9 @@ function draw(){
   // player_1.move(1);
   player_1.show();
   for (bub of bub_array){
+    if (bub.wired()){
+      bub.clicked();
+    }
     if (bub.alive){
       bub.collision();
       bub.gravity();
