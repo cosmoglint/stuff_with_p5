@@ -8,7 +8,7 @@ function Bubble(start_x,start_y,depth,direction){
   this.max_limit = (wh)-(this.decval);
   this.size = max_bubble_size/(2**depth);
   this.radius = this.size/2;
-  this.y_velocity = -10;
+  this.y_velocity = -15 ;
   this.direction = direction;
   this.genesis = true;
 
@@ -44,6 +44,28 @@ Bubble.prototype.gravity = function(){
 
 Bubble.prototype.move = function(){
   this.xpos += bubble_speed*this.direction;
+}
+
+Bubble.prototype.playered = function(){
+  let player = player_1;
+  val = false;
+  dist_x = Math.abs(this.xpos - player.xpos);
+  dist_y = Math.abs(this.ypos - player.ypos);
+
+  if ((dist_x < player.width/2 + this.radius) && (dist_y < player.height/2)){
+    val = true;
+  }
+  if ((dist_y < player.height/2 + this.radius) && (dist_x < player.width/2)){
+    val = true;
+  }
+
+  d = dist(this.xpos,this.ypos,player.xpos,player.ypos);
+
+  if (d < this.radius + dist(player.xpos,player.ypos,player.xpos+player.width/2,player.ypos+player.height/2)){
+    val = true;
+  }
+  return val;
+
 }
 
 Bubble.prototype.wired = function(){

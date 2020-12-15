@@ -1,13 +1,14 @@
-let max_bubble_size = 500;
+let max_bubble_size = 200;
 
 let gravity_value = 0.98 / 1.5;
 let bubble_speed = 10;
 let player_speed = 10;
 let start_speed = 20;
 
-let max_limit_val = 1.35;
-let max_depth = 5;
+let max_limit_val = 1.5;
+let max_depth = 4;
 
+let game_state = "running";
 let bub_array = [];
 let temp_array = [];
 
@@ -43,6 +44,19 @@ function key_check(){
   }
 }
 
+function reset_state(){
+  bub_array = [];
+
+  player_1 = new Player(100,100);
+  player_1.x = ww/2;
+  player_1.y = wh - 300;
+
+  temp_array = [];
+  wire_array = [];
+  bub = new Bubble(500,200,0,-1);
+  bub_array.push(bub);
+}
+
 function init(){
   ww = windowWidth;
   wh = windowHeight;
@@ -70,37 +84,43 @@ function draw(){
 
   background(0);
 
-  key_check();
+  if (game_state = "running"){
+    key_check();
 
-  for (wire of wire_array){
-    wire.collide();
-    if (wire.live){
-      wire.travel();
-      wire.show();
+    for (wire of wire_array){
+      wire.collide();
+      if (wire.live){
+        wire.travel();
+        wire.show();
+      }
+      else{
+        wire_index = wire_array.indexOf(wire);
+        wire_array.splice(wire_index,1);
+      }
     }
-    else{
-      wire_index = wire_array.indexOf(wire);
-      wire_array.splice(wire_index,1);
+    // player_1.move(1);
+    player_1.show();
+    for (bub of bub_array){
+      if (bub.playered()){
+        game_state = "over";
+        reset_state();
+      }
+      if (bub.wired()){
+        bub.clicked();
+      }
+      if (bub.alive){
+        bub.collision();
+        bub.gravity();
+        bub.move();
+        bub.show();
+      }
+      else{
+        bub_index = bub_array.indexOf(bub);
+        bub_array.splice(bub_index,1);
+      }
     }
+    bub_array = bub_array.concat(temp_array);
+    temp_array = [];
   }
-  // player_1.move(1);
-  player_1.show();
-  for (bub of bub_array){
-    if (bub.wired()){
-      bub.clicked();
-    }
-    if (bub.alive){
-      bub.collision();
-      bub.gravity();
-      bub.move();
-      bub.show();
-    }
-    else{
-      bub_index = bub_array.indexOf(bub);
-      bub_array.splice(bub_index,1);
-    }
-  }
-  bub_array = bub_array.concat(temp_array);
-  temp_array = [];
   // circle(mouseX,mouseY,100);
 }
