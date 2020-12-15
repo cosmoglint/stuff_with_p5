@@ -3,7 +3,7 @@ function Bubble(start_x,start_y,depth,direction){
   this.xpos = this.start.x;
   this.ypos = this.start.y;
   this.depth = depth;
-  this.decval = wh/(max_limit_val**this.depth);
+  this.decval = wh/(max_limit_val**(this.depth+1));
   this.std_velocity = (-1+Math.sqrt(1+(8*this.decval/gravity_value)))/2;
   this.max_limit = (wh)-(this.decval);
   this.size = max_bubble_size/(2**depth);

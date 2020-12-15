@@ -1,12 +1,12 @@
 let max_bubble_size = 200;
 
 let gravity_value = 0.98 / 1.5;
-let bubble_speed = 10;
+let bubble_speed = 6;
 let player_speed = 10;
 let start_speed = 20;
 
-let max_limit_val = 1.5;
-let max_depth = 4;
+let max_limit_val = 1.3;
+let max_depth = 2;
 
 let game_state = "running";
 let bub_array = [];
