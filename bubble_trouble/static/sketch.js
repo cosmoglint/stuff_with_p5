@@ -10,6 +10,7 @@ let max_depth = 5;
 
 let bub_array = [];
 
+let wire_width = 10;
 
 function random_color(){
   thecol = color(random(0,255),random(0,255),random(0,255));
@@ -41,6 +42,8 @@ function init(){
 
   bound_box = new Bounds(0,ww,0,wh);
 
+  test_wire = new Wire(ww/2);
+
   player_1 = new Player(100,100);
   player_1.x = ww/2;
   player_1.y = wh - 300;
@@ -59,7 +62,7 @@ function draw(){
   background(0);
 
   key_check();
-
+  test_wire.show();
   // player_1.move(1);
   player_1.show();
   for (bub of bub_array){

@@ -14,10 +14,13 @@ Player.prototype.move = function(direction){
 }
 
 
-function Wire(x,y){
+function Wire(x){
   this.xpos = x;
-  this.ypos = y;
   this.height = wh;
   this.top = wh;
-  
+  this.ypos = this.top + this.height/2;
+}
+
+Wire.prototype.show = function(){
+  rect(this.xpos,this.ypos,wire_width,this.height);
 }
