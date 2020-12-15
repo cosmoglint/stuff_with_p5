@@ -9,6 +9,7 @@ let max_limit_val = 1.35;
 let max_depth = 5;
 
 let bub_array = [];
+let temp_array = [];
 
 let wire_array = [];
 let wire_width = 10;
@@ -19,12 +20,12 @@ function random_color(){
   return thecol;
 }
 
-function mousePressed(){
-  for (bub of bub_array){
-    bub.clicked();
-  }
-  return false;
-}
+// function mousePressed(){
+//   for (bub of bub_array){
+//     bub.clicked();
+//   }
+//   return false;
+// }
 
 function keyPressed(){
   if (keyCode == 32 && wire_array.length==0){
@@ -99,5 +100,7 @@ function draw(){
       bub_array.splice(bub_index,1);
     }
   }
+  bub_array = bub_array.concat(temp_array);
+  temp_array = [];
   // circle(mouseX,mouseY,100);
 }

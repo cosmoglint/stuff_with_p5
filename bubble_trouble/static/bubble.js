@@ -47,32 +47,41 @@ Bubble.prototype.move = function(){
 }
 
 Bubble.prototype.wired = function(){
+  val = false;
   for (wire of wire_array){
+    val = false;
     dist_x = Math.abs(this.xpos - wire.xpos);
     dist_y = Math.abs(this.ypos - wire.ypos);
 
-    if (dist_x > (this.radius + wire.width/2)) { return false; };
-    if (dist_y > (this.radius + wire.height/2)) { return false; };
+    if (dist_x > (this.radius + wire.width/2)) { continue; };
+    if (dist_y > (this.radius + wire.height/2)) { continue; };
 
     if ((dist_x < wire.width/2 + this.radius) && (dist_y < wire.height/2)){
-      return true;
+      val = true;
+      wire.live = false;
+      break;
     }
     if ((dist_y < wire.height/2 + this.radius) && (dist_x < wire.width/2)){
-      return true;
+      val = true;
+      wire.live = false;
+      break;
     }
 
     d = dist(this.xpos,this.ypos,wire.xpos,wire.ypos);
 
     if (d < this.radius + dist(wire.xpos,wire.ypos,wire.xpos+wire.width/2,wire.ypos+wire.height/2)){
-      return true;
+      val = true;
+      wire.live = false;
+      break;
     }
     else{
-      return false;
+      continue;
     }
     // dx = dist_x - wire.width/2;
     // dy = dist_y - wire.width/2;
 
   }
+  return val;
 }
 
 Bubble.prototype.clicked = function(){
@@ -84,6 +93,6 @@ Bubble.prototype.destroy = function(){
   if (this.depth<=max_depth){
     l_bub = new Bubble(this.xpos,this.ypos,this.depth+1,-1);
     r_bub = new Bubble(this.xpos,this.ypos,this.depth+1,1);
-    bub_array.push(l_bub,r_bub);
+    temp_array.push(l_bub,r_bub);
   }
 }
