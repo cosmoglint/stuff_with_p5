@@ -12,3 +12,12 @@ Player.prototype.show = function(){
 Player.prototype.move = function(direction){
   this.xpos += player_speed*direction;
 }
+
+
+function Wire(x,y){
+  this.xpos = x;
+  this.ypos = y;
+  this.height = wh;
+  this.top = wh;
+  
+}
