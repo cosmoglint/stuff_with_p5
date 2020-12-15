@@ -3,10 +3,10 @@ function Bubble(start_x,start_y,depth,direction){
   this.xpos = this.start.x;
   this.ypos = this.start.y;
   this.depth = depth;
-  this.max_limit = max_limit*this.depth;
+  this.max_limit = (wh)-(wh/(this.depth+1));
   this.size = max_bubble_size/(2**depth);
   this.radius = this.size/2;
-  this.y_velocity = -10;
+  this.y_velocity = -50;
   this.direction = direction;
   this.genesis = true;
 
@@ -51,7 +51,9 @@ Bubble.prototype.clicked = function(){
 }
 
 Bubble.prototype.destroy = function(){
-  l_bub = new Bubble(this.xpos,this.ypos,this.depth+1,-1);
-  r_bub = new Bubble(this.xpos,this.ypos,this.depth+1,1);
-  bub_array.push(l_bub,r_bub);
+  if (this.depth<=max_depth){
+    l_bub = new Bubble(this.xpos,this.ypos,this.depth+1,-1);
+    r_bub = new Bubble(this.xpos,this.ypos,this.depth+1,1);
+    bub_array.push(l_bub,r_bub);
+  }
 }
