@@ -9,18 +9,29 @@ let max_limit_val = 1.35;
 let max_depth = 5;
 
 let bub_array = [];
+let temp_array = [];
 
+let wire_array = [];
+let wire_width = 10;
+let wire_speed = 30;
 
 function random_color(){
   thecol = color(random(0,255),random(0,255),random(0,255));
   return thecol;
 }
 
-function mousePressed(){
-  for (bub of bub_array){
-    bub.clicked();
+// function mousePressed(){
+//   for (bub of bub_array){
+//     bub.clicked();
+//   }
+//   return false;
+// }
+
+function keyPressed(){
+  if (keyCode == 32 && wire_array.length==0){
+    wire_array.push(new Wire(player_1.xpos));
   }
-  return false;
+  console.log(keyCode);
 }
 
 function key_check(){
@@ -41,6 +52,7 @@ function init(){
 
   bound_box = new Bounds(0,ww,0,wh);
 
+
   player_1 = new Player(100,100);
   player_1.x = ww/2;
   player_1.y = wh - 300;
@@ -60,9 +72,23 @@ function draw(){
 
   key_check();
 
+  for (wire of wire_array){
+    wire.collide();
+    if (wire.live){
+      wire.travel();
+      wire.show();
+    }
+    else{
+      wire_index = wire_array.indexOf(wire);
+      wire_array.splice(wire_index,1);
+    }
+  }
   // player_1.move(1);
   player_1.show();
   for (bub of bub_array){
+    if (bub.wired()){
+      bub.clicked();
+    }
     if (bub.alive){
       bub.collision();
       bub.gravity();
@@ -74,5 +100,7 @@ function draw(){
       bub_array.splice(bub_index,1);
     }
   }
+  bub_array = bub_array.concat(temp_array);
+  temp_array = [];
   // circle(mouseX,mouseY,100);
 }
