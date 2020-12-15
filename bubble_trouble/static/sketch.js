@@ -5,7 +5,8 @@ let bubble_speed = 10;
 let player_speed = 10;
 let start_speed = 20;
 
-let max_limit;
+let max_limit_val = 1.35;
+let max_depth = 5;
 
 let bub_array = [];
 
@@ -37,7 +38,6 @@ function init(){
   canvas = createCanvas(ww,wh);
   canvas.style('z-index','-1');
   canvas.position(0,0);
-  max_limit = wh*0.1;
 
   bound_box = new Bounds(0,ww,0,wh);
 
