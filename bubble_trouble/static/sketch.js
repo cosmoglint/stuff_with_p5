@@ -77,6 +77,7 @@ function init(){
 
 function setup(){
   rectMode(CENTER);
+  pixelDensity(2);
   init();
 }
 
