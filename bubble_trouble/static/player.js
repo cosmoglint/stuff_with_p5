@@ -13,7 +13,6 @@ Player.prototype.move = function(direction){
   this.xpos += player_speed*direction;
 }
 
-
 function Wire(x){
   this.xpos = x;
   this.height = wh;
