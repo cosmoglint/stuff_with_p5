@@ -11,6 +11,7 @@ index:
 5. [mandelbrot set](5_mandelbrot_set)
 6. [line filler that fills up triangles](6_line_triangle_filler)
 
+<br>
 
 1. [10-print](1_10print)
 ![10 print](./images/10print.png)
